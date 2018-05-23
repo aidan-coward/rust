@@ -1,0 +1,19 @@
+conky 1.10 and onwards use new lua-based syntax:
+instructions for switching(all done afaik as of july 1)
+i think it is broken since it displays things that are supposed to be comments
+
+wrap your config section in
+conky.config = { ... }
+
+wrap your TEXT section in
+conky.text = [[ ... ]]
+
+the config options are lookup values and you need to assign the values (i.e. use "=")
+
+each line in the config section ends with ","
+
+replace "yes" and "no" with "true" and "false", resp. (without quotes)
+
+all values except numbers, "true" and "false" need quotes
+
+comments are marked with "--" instead of "#"

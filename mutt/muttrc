@@ -1,0 +1,151 @@
+# Sets up mail box in your home folder  
+ set mbox_type=maildir  
+ #set mbox="~/mail/inbox/"  
+ set mbox="~/mail/Gmail/INBOX"  
+ #set spoolfile="~/mail/inbox/"  
+ set spoolfile="~/mail/Gmail/INBOX"  
+ set folder="~/mail/"  
+ set record="~/mail/sent/"  
+ set postponed="~/mail/postponed/"  
+ #Gmail account info  
+ set from = "aidan.coward@gmail.com"  
+ set realname = "Aidan Coward"  
+ #My Editor  
+ set editor='vim -c "set wrap" -c "set textwidth=0"' 
+ #Folders  
+ #Remote Folders  
+# set folder = "imaps://imap.gmail.com:993"  
+# set spoolfile = "+INBOX"  
+ set postponed ="~/mail/Gmail/[Gmail].Drafts"  
+ #Local Folders  
+ set header_cache =~/.mutt/cache/headers  
+ set message_cachedir =~/.mutt/cache/bodies  
+ set certificate_file =~/.mutt/certificates  
+ #SMTP Setup  
+ set smtp_url = "smtp://aidan.coward@smtp.gmail.com:587/"  
+ # hidey hole for the top secret password
+ source /home/aidan/.config/mutt/password
+ #Special Keybindings  
+ bind editor <space> noop  
+ macro index gi "<change-folder>=Gmail/INBOX<enter>" "Go to inbox"  
+ macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"  
+ macro index gs "<change-folder>=Gmail/[Gmail].Sent Mail<enter>" "Go to Sent Mail"  
+ macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"  
+ #Mutt Session Security  
+ set move = no #Stop asking to "move read messages to mbox"!  
+ set imap_keepalive = 900  
+
+#sort options
+set sort = threads
+set sort_aux = last-date-received
+
+set text_flowed
+
+ # #colors  
+ #color hdrdefault cyan default  
+ #color attachment yellow default  
+ #color header brightyellow default "From: "  
+ #color header brightyellow default "Subject: "  
+ #color header brightyellow default "Date: "  
+ #color quoted green default  
+ #color quoted1 cyan default  
+ #color quoted2 green default  
+ #color quoted3 cyan default  
+ #color error   red       default     # error messages  
+ #color message  white      default     # message informational messages  
+ #color indicator white      red       # indicator for the "current message"  
+ #color status  white      blue      # status lines in the folder index sed for the mini-help line  
+ #color tree   red       default     # the "tree" display of threads within the folder index  
+ #color search  white      blue      # search matches found with search within the internal pager  
+ #color markers  red       default     # The markers indicate a wrapped line  
+ #color index   yellow default '~O'  
+ #color index   yellow default '~N'  
+ #color index   brightred    default '~F'  # Flagged Messages are important!  
+ #color index   blue default  '~D'      # Deleted Mails - use dark color as these are already "dealt with"  
+ # identifies email addresses  
+ #color body  brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+  
+ # identifies URLs  
+ #color body  brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+ 
+
+# applications to open attachements with 
+#image/*; eog %s
+#application/pdf; evince %s
+macro attach O \
+"\
+<enter-command>unset wait_key<enter>\
+<shell-escape>rm -f /tmp/mutt-attach<enter>\
+<save-entry><kill-line>/tmp/mutt-attach<enter>\
+<shell-escape> /tmp/mutt-attach &^A\
+"
+
+
+# Index Key Bindings ---------------------------------
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+bind browser,index,pager N search-opposite
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+
+# Sidebar
+#set sidebar_visible = yes
+#macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+#macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+# set up the sidebar, default not visible
+#set sidebar_width=12
+#set sidebar_visible=yes
+#set sidebar_delim='|'
+#set sidebar_sort=yes
+
+# which mailboxes to list in the sidebar
+mailboxes =inbox 
+
+# #color of folders with new mail
+#color sidebar_new yellow default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+#bind index CP sidebar-prev
+#bind index CN sidebar-next
+#bind index CO sidebar-open
+#bind pager CP sidebar-prev
+#bind pager CN sidebar-next
+#bind pager CO sidebar-open
+
+# I don’t need these. just for documentation purposes. See below.
+# sidebar-scroll-up
+# sidebar-scroll-down
+
+# b toggles sidebar visibility
+macro index b ‘<enter-command>toggle sidebar_visible<enter>’
+macro pager b ‘<enter-command>toggle sidebar_visible<enter>’
+
+# Remap bounce-message function to “B”
+bind index B bounce-message
+
+# color scheme
+source /home/aidan/.config/mutt/mutt-colors-solarized-dark-16.muttrc
+
+# mystery options
+set text_flowed=yes
+
+# set mailcap path
+set mailcap_path = /etc/mailcap
+
+#automatically view html mail with lynx
+auto_view text/html
+
+# speed up folder change
+set sleep_time = 0
+
+## GooBook
+set query_command="goobook query '%s'"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
+

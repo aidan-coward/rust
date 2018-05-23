@@ -1,0 +1,58 @@
+2014-11-08 00:36:32		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-08 00:36:32		fifo: pipe closed
+2014-11-08 00:53:44		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-08 00:53:52		script: downloading list of scripts...
+2014-11-08 00:53:59		script: 280 scripts for WeeChat 1.0.1
+2014-11-08 00:54:01		perl: loading script "/home/aidan/.weechat/perl/iset.pl"
+2014-11-08 00:54:01		perl: registered script "iset", version 3.6 (Interactive Set for configuration options)
+2014-11-08 00:54:01		New key binding (context "mouse"): @chat(perl.iset):button1 => hsignal:iset_mouse
+2014-11-08 00:54:01		New key binding (context "mouse"): @chat(perl.iset):button2* => hsignal:iset_mouse
+2014-11-08 00:54:01		New key binding (context "mouse"): @chat(perl.iset):wheeldown => /repeat 5 /iset **down
+2014-11-08 00:54:01		New key binding (context "mouse"): @chat(perl.iset):wheelup => /repeat 5 /iset **up
+2014-11-08 00:54:45		fifo: pipe closed
+2014-11-08 00:54:45		perl: scripts unloaded
+2014-11-08 02:15:47		perl scripts loaded: iset
+2014-11-08 02:15:47		script: 280 scripts for WeeChat 1.0.1
+2014-11-08 02:15:47		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-08 02:15:47		fifo: pipe closed
+2014-11-08 02:15:47		perl: scripts unloaded
+2014-11-08 02:22:19		perl scripts loaded: iset
+2014-11-08 02:22:22		script: 280 scripts for WeeChat 1.0.1
+2014-11-08 02:22:22		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-08 02:22:22		fifo: pipe closed
+2014-11-08 02:22:22		perl: scripts unloaded
+2014-11-08 02:23:47		perl scripts loaded: iset
+2014-11-08 02:23:50		script: 280 scripts for WeeChat 1.0.1
+2014-11-08 02:23:50		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-08 02:23:50		fifo: pipe closed
+2014-11-08 02:23:50		perl: scripts unloaded
+2014-11-09 13:21:22		perl scripts loaded: iset
+2014-11-09 13:21:24		script: downloading list of scripts...
+2014-11-09 13:21:25		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-09 13:21:25		fifo: pipe closed
+2014-11-09 13:21:25		perl: scripts unloaded
+2014-11-10 18:14:51		perl scripts loaded: iset
+2014-11-10 18:14:54		script: downloading list of scripts...
+2014-11-10 18:14:54		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-10 18:14:54		fifo: pipe closed
+2014-11-10 18:14:54		perl: scripts unloaded
+2014-11-11 14:21:45		perl scripts loaded: iset
+2014-11-11 14:21:47		script: downloading list of scripts...
+2014-11-11 14:21:47		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-11 14:21:47		fifo: pipe closed
+2014-11-11 14:21:47		perl: scripts unloaded
+2014-11-11 22:35:53		perl scripts loaded: iset
+2014-11-11 22:35:56		script: downloading list of scripts...
+2014-11-11 22:35:56		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-11 22:35:56		fifo: pipe closed
+2014-11-11 22:35:56		perl: scripts unloaded
+2014-11-12 05:33:11		perl scripts loaded: iset
+2014-11-12 05:33:14		script: downloading list of scripts...
+2014-11-12 05:33:14		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-12 05:33:14		fifo: pipe closed
+2014-11-12 05:33:14		perl: scripts unloaded
+2014-11-12 15:33:36		perl scripts loaded: iset
+2014-11-12 15:33:39		script: downloading list of scripts...
+2014-11-12 15:33:39		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-11-12 15:33:39		fifo: pipe closed
+2014-11-12 15:33:39		perl: scripts unloaded

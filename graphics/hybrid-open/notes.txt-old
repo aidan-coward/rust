@@ -1,0 +1,12 @@
+added new xorg file 10-gpu.conf
+
+added radeon.conf to /etc/modules-load.d/
+
+added radeon module to the MODULES line in /etc/mkinitcpio.conf
+regenerated initramfs with 
+# mkinitcpio -p linux
+
+the three preceding steps did not fix the problem of "drm report modesetting isn't supported"
+this error is caused because the radeon module is not loaded
+
+when the radeon module is loaded, x fails to start and grep EE displays "screens:0"

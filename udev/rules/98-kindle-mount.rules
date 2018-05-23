@@ -1,0 +1,2 @@
+ACTION=="add", KERNEL=="sd?1", ATTRS{size}=="6385648", SYMLINK+="kindle", RUN+="/usr/bin/udisks --mount /dev/kindle --mount-options umask=0000"
+
