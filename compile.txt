@@ -1,6 +1,0 @@
-luakit
-conky
-xmonad
-dzen
-cmus
-
