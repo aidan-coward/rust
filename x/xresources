@@ -1,3 +1,5 @@
+!increases font size
+URxvt*font: xft:7x14:size=8
 !-------------
 ! urxvt stuff
 !------------

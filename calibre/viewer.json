@@ -6,12 +6,12 @@
   "viewer_toc_isvisible": false, 
   "main_window_state": {
     "__class__": "bytearray", 
-    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAAAAAAAAPwCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIcA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAAxwD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAAP////8AAAA6AP///wAABRoAAALHAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
+    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAAAAAAAAPwCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIgA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAAzQD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAAP////8AAAA6AP///wAAAeMAAAFKAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
   }, 
   "in_paged_mode": true, 
   "viewer_window_geometry": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywACAAAAAAAAAAAAEgAABVUAAAL/AAAAAAAAABIAAAVVAAAC/wAAAAAAAAAABVY="
+    "__value__": "AdnQywACAAAAAAMzAAAAFQAABVUAAAGJAAADNQAAABcAAAVTAAABhwAAAAAAAAAABVY="
   }, 
   "multiplier": 1.0, 
   "custom_colors_for_color_dialog": [
@@ -113,6 +113,7 @@
     ]
   ], 
   "viewer_open_history": [
+    "/home/aidan/media/books/Calibre Library/The Rust Team/The Rust Programming Language (1)/The Rust Programming Language - The Rust Team.epub", 
     "/home/aidan/media/books/Calibre Library/Margaret Atwood/Alias Grace (8)/Alias Grace - Margaret Atwood.mobi", 
     "/home/aidan/media/books/Calibre Library/Margaret Shepherd/Learn Calligraphy (7)/Learn Calligraphy - Margaret Shepherd.epub", 
     "/home/aidan/media/books/Calibre Library/Unknown/a-brief-history-of-neoliberalism (6)/a-brief-history-of-neoliberalism - Unknown.epub", 

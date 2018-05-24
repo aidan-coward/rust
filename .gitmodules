@@ -7,3 +7,6 @@
 [submodule "vim/pack/packages/start/commentary"]
 	path = vim/pack/packages/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/pack/packages/start/vim-multiple-cursors"]
+	path = vim/pack/packages/start/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
