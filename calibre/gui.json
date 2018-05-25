@@ -1,7 +1,7 @@
 {
   "quick_start_guide_added": true, 
   "library_usage_stats": {
-    "/home/aidan/media/books/Calibre Library": 12
+    "/home/aidan/media/books/Calibre Library": 15
   }, 
   "book_details_splitter_horizontal_state": [
     true, 
@@ -184,6 +184,10 @@
   "preferences_window_geometry": {
     "__class__": "bytearray", 
     "__value__": "AdnQywABAAAAAAAAAAAAAAAAAzIAAAL/AAAAAgAAAAIAAAMwAAAC/QAAAAAAAA=="
+  }, 
+  "scheduler_dialog_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAEZAAAAfgAABDgAAAJ9AAABGwAAAIAAAAQ2AAACewAAAAAAAAAABVY="
   }, 
   "card_a_view books view state": {
     "column_alignment": {
