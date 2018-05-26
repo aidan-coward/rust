@@ -1,0 +1,36 @@
+This program is for debugging only, it does not run any program
+specified by a RUN key. It may show incorrect results, because
+some values may be different, or not available at a simulation run.
+
+.ID_FS_TYPE_NEW=
+ACTION=add
+DEVLINKS=/dev/disk/by-id/usb-Kindle_Internal_Storage-0:0-part1 /dev/disk/by-path/pci-0000:00:1a.0-usb-0:1.1:1.0-scsi-0:0:0:0-part1 /dev/kindle
+DEVNAME=/dev/sdb1
+DEVPATH=/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0/host6/target6:0:0/6:0:0:0/block/sdb/sdb1
+DEVTYPE=partition
+ID_BUS=usb
+ID_FS_TYPE=
+ID_INSTANCE=0:0
+ID_MODEL=Internal_Storage
+ID_MODEL_ENC=Internal\x20Storage
+ID_MODEL_ID=0004
+ID_PART_TABLE_TYPE=dos
+ID_PART_TABLE_UUID=3a507153
+ID_PATH=pci-0000:00:1a.0-usb-0:1.1:1.0-scsi-0:0:0:0
+ID_PATH_TAG=pci-0000_00_1a_0-usb-0_1_1_1_0-scsi-0_0_0_0
+ID_REVISION=0310
+ID_SERIAL=Kindle_Internal_Storage-0:0
+ID_TYPE=disk
+ID_USB_DRIVER=usb-storage
+ID_USB_INTERFACES=:080650:
+ID_USB_INTERFACE_NUM=00
+ID_VENDOR=Kindle
+ID_VENDOR_ENC=Kindle\x20\x20
+ID_VENDOR_ID=1949
+MAJOR=8
+MINOR=17
+PARTN=1
+SUBSYSTEM=block
+TAGS=:systemd:
+UDISKS_PRESENTATION_NOPOLICY=0
+USEC_INITIALIZED=18008850

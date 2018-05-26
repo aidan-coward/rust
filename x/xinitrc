@@ -1,0 +1,21 @@
+# starts a luakit instance
+#luakit &
+# update xresources db so that urxvt uses Xresources info 
+xrdb -merge .Xresources
+# starts urxvt daemon
+urxvtd -q -f -o
+# set keyboard delay rate
+kbdrate
+# set the cursor
+xsetroot -cursor_name left_ptr
+# set dvp layout
+#setxkbmap -rules xorg -model pc104 -layout us -variant dvp -option "ctrl:swapcaps" 
+# make clipboard consistent across system
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+# this binds the extra function keys
+xbindkeys
+# enables numlock automatically 
+numlockx &
+# start xmonad
+exec xmonad 

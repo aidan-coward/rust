@@ -1,0 +1,288 @@
+# Ben Oliver
+
+Navigation
+
+## Chapters
+
+  * [Home](/)
+  * [About](/about/)
+  * [Articles](/articles/)
+  * [Feed](/feed.xml)
+
+Return to Content
+
+![A Simple, Solarized, Weechat Setup - v2.0 feature
+image](/images/weechatbanner.png)
+
+![Ben Oliver bio photo](/images/bio-photo.png)
+
+### Ben Oliver
+
+I post about whatever comes to mind. Somehow it turned out to be mostly film
+reviews. Please don't moan about spoilers.
+
+[__Get in touch](/contact/) [__Subscribe for updates](/subscribe/)
+[__Links](/links/)
+
+# A Simple, Solarized, Weechat Setup - v2.0
+
+## _An update to work with newer versions of the IRC client and the new
+buflist_
+
+## Intro
+
+Back in 2014 I [rehosted a weechat guide that was very useful to
+me](/2014/02/18/weechatconf/) when setting up the client.
+
+Since then there have been [a few changes to
+weechat](https://weechat.org/blog/post/2017/06/25/Version-1.9) \- most notably
+with how the buffer list is handled - which made the guide incompatible with
+modern versions of the client. Due to this, I have been getting a fairly
+steady stream of emails through asking for an update.
+
+The original article has been getting a little dog-eared with the constant
+updates I was making - so here we are with a brand new post.
+
+Please note: **this is for a fresh install of weechat version 1.9, it will not
+work with older versions. Please refer to the original post linked above for
+that.**.
+
+I removed all my config files, keeping only my old `sec.conf` and the
+`[server]` lines in `irc.conf`, for ease of use. Then I ran the commands
+listed in this article. Read it carefully, because you may not want my exact
+config.
+
+[![](https://www.bfoliver.com/images/weechat1.png)](https://www.bfoliver.com/images/weechat1.png)
+The end result. Yes, I know there are some characters missing, I just switched
+font.
+
+## Background
+
+I am running weechat in urxvt with the [solarized dark theme set in
+Xresources](https://github.com/solarized/xresources).
+
+Your mileage may vary if your setup is different to mine.
+
+## The Config
+
+### Scripts
+
+First we install the scripts we will be using:
+
+    
+    
+    /script install perlexec.pl buffer_autoclose.py go.py colorize_nicks.py autosort.py zerotab.py urlserver.py
+    
+
+  * `perlexec.pl` will be explained later
+  * `buffer_autoclose.py` auto-closes inactive PMs
+  * `go.py` lets you jump between channels (v. important in this new setup)
+  * `colorize_nicks.py` \- no prizes for guessing what this does
+  * `autosort.py` \- helps with organising the buflist
+  * `zerotab.py` \- selects the last person to speak as the auto-filled nick when you hit tab
+  * `urlserver.py` \- runs a little webserver so you can easily click links in a web browser by accessing a web page
+
+### Cosmetic changes
+
+Set the status and title bar colors:
+
+    
+    
+    /set weechat.bar.status.color_bg 0
+    /set weechat.bar.title.color_bg 0
+    
+
+Set the nick colors:
+
+    
+    
+    /set weechat.color.chat_nick_colors 1,2,3,4,5,6
+    
+
+Set the highlighted nick text color to white (most readable on pink
+background):
+
+    
+    
+    /set weechat.color.chat_highlight 7
+    
+
+Set the buflist colors (this is my setup, change these until you are happy):
+
+    
+    
+    /set buflist.format.hotlist_message "${color:7}"
+    /set buflist.format.buffer_current "${color:,7}${format_buffer}"
+    
+
+Set the buflist position:
+
+    
+    
+    /set weechat.bar.buflist.position top
+    /set weechat.bar.buflist.items "buflist"
+    
+
+Set sorting rules. Each channel gets ‘grouped’ under its respective server
+buffer (look at the screenshot). Bit of a change from the old config, but you
+can just ignore it if you don’t like it:
+
+    
+    
+    /autosort replacements add ## #
+    /autosort rules add irc.server.*.&* = 0
+    /autosort rules add irc.server.*.#* = 1
+    /autosort rules add irc.server.*.\*status = 2
+    /set irc.look.server_buffer independent
+    /set weechat.look.hotlist_add_conditions "${away} || ${buffer} != ${window.buffer}"
+    
+
+Use these nice-ass characters instead of the defaults:
+
+    
+    
+    /set weechat.look.prefix_same_nick "⤷"
+    /set weechat.look.prefix_error "⚠"
+    /set weechat.look.prefix_network "ℹ "
+    /set weechat.look.prefix_action "⚡"
+    /set weechat.look.bar_more_down "▼▼"
+    /set weechat.look.bar_more_left "◀◀"
+    /set weechat.look.bar_more_right "▶▶"
+    /set weechat.look.bar_more_up "▲▲"
+    /set weechat.look.prefix_suffix "╡"
+    
+
+Set nicks to 15 chars max (I have a small screen!):
+
+    
+    
+    /set weechat.look.prefix_align_max 15
+    
+
+Set time format to 24h, HHMM, so 2034, for example (again, small screen):
+
+    
+    
+    /set weechat.look.buffer_time_format "${253}%H${245}%M"
+    
+
+### Triggers
+
+This is what perlexec.pl is for.
+
+This hides buffers when they have been idle for 90 seconds. You can still use
+`/go` to jump back into them. More info
+[here](https://github.com/weechat/weechat/wiki/Triggers#display):
+
+    
+    
+    /trigger addreplace windowswitch signal window_switch "" "" "/perlexec weechat::buffer_set(weechat::window_get_pointer('${tg_signal_data}','buffer'), 'hotlist', -1);"
+    /trigger add bufferswitch signal "buffer_switch" "" "" "/perlexec weechat::buffer_set(weechat::hdata_get_list(weechat::hdata_get('buffer'),'gui_buffer_last_displayed'), 'unread', 0)\;"
+    /trigger add force_redraw signal "window_switch;buffer_switch" "" "" "/wait 1ms /redraw"
+    /trigger addreplace detach timer 10000;0;0 "" "" "/allchan /eval /perlexec weechat::command('', '/command -buffer irc.\${server}.\${channel} core /buffer hide') if ((${date:%s} - \${buffer[\${info:irc_buffer,\${server},\${channel}}].lines.last_line.data.date}) > 100 && '\${window.buffer.full_name}' !~ 'irc.\${server}.\${channel}' && '\${buffer[\${info:irc_buffer,\${server},\${channel}}].hotlist}' eq '0x0')"
+    /trigger addreplace reattach print "" "${buffer.hidden} == 1 && ${tg_tag_notify} == message" "" "/command -buffer irc.$server.$channel core /buffer unhide"
+    /trigger addreplace reattach_on_switch signal buffer_switch "${buffer[${tg_signal_data}].hidden} == 1" "" "/command -buffer ${buffer[${tg_signal_data}].full_name} core /buffer unhide"
+    
+
+You may notice that now when you hit `alt+right` or `alt+left` it only jumps
+between buffers in the hotlist. It used to jump between _all_ buffers, even
+the hidden ones. I am happy with this, I just use `/go` when I want to switch
+to an idle buffer, but just FYI. This is probably the biggest change from the
+‘old’ config.
+
+### Filters
+
+I like to filter out join/quit messages for users that have not been active.
+
+    
+    
+    /set weechat.look.buffer_notify_default message
+    /set irc.look.smart_filter on
+    /filter add irc_smart * irc_smart_filter *
+    /filter add irc_join_names * irc_366,irc_332,irc_333,irc_329,irc_324 *
+    
+
+The default is about 5 minutes I think, so if someone you have been talking to
+quits, you see it, but if idlers come and go you don’t get bothered.
+
+### go.py
+
+Pretty simple, we want to bind `alt+g` to ‘go’:
+
+    
+    
+    /key bind meta-g /go
+    
+
+You can also type `/go` when you want
+
+### Toggle nicklist
+
+This makes `alt+n` toggle the nicklist.
+
+    
+    
+    /key bind meta-n /bar toggle nicklist
+    
+
+### URL server
+
+By default the url server is available on a random port each time it starts. I
+like to have it on `http://localhost:60211` so I can save it in my bookmarks.
+You can of course choose your own port:
+
+    
+    
+    /set plugins.var.python.urlserver.http_port "60211"
+    
+
+### Disable logging
+
+I don’t like logging, so I turn it off:
+
+    
+    
+    /set logger.file.auto_log off
+    
+
+## Conclusion
+
+That’s it! Feel free to contact me if you have any suggestions etc.
+
+Check out the [weechat github wiki](https://github.com/weechat/weechat/wiki)
+\- it has some really cool information now about how to get nicer buffer lists
+etc. It was all a bit overkill for me and I wanted to stick as close as I
+could to the 2014 original config, but some of the stuff on there looks really
+nice.
+
+## Credits
+
+  * [Pascal Poitras’ config for the sort lines and a reminder on how to set urlserver](https://gist.github.com/pascalpoitras/8406501)
+  * [The weechat github wiki on how to get idle buffers to hide, amongst other things](https://github.com/weechat/weechat/wiki/Triggers#display)
+  * [The original guide, OFFLINE AS OF 2017-07-15](http://inhies.com/weechat_my_new_favorite_irc_client/)
+
+* * *
+
+![Ben Oliver bio photo](/images/bio-photo.png)
+
+### Ben Oliver
+
+I post about whatever comes to mind. Somehow it turned out to be mostly film
+reviews. Please don't moan about spoilers.
+
+[__Get in touch](/contact/) [__Subscribe for updates](/subscribe/)
+[__Links](/links/)
+
+**A Simple, Solarized, Weechat Setup - v2.0** was published on  July 15, 2017
+by [Ben Oliver](/about "About Ben Oliver").
+
+#### You might also enjoy ([View all articles](/articles))
+
+* * *
+
+(C) 2018 Ben Oliver. Powered by [Jekyll](http://jekyllrb.com) using a lightly
+adapted version of the [HMFAYSAL V2](https://github.com/hmfaysal/Jekyll-
+HMFAYSAL-V2-Theme) theme. bfoliver.com by [Ben Oliver](http://bfoliver.com) is
+licensed under a [Creative Commons Attribution-ShareAlike 4.0 International
+License](http://creativecommons.org/licenses/by-sa/4.0/).
+

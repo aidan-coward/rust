@@ -1,0 +1,49 @@
+# vol up
+"amixer set Master 5+ unmute"
+m:0x10 + c:76
+
+#vol down
+"amixer set Master 5- unmute"
+m:0x10 + c:75
+
+#vol mute/unmute
+"amixer set Master toggle"
+m:0x10 + c:74
+
+#previous in cmus playlist
+"cmus-remote --prev"
+m:0x14 + c:75
+
+#pause/unpause cmus - also works to start music 
+"cmus-remote --pause"
+m:0x14 + c:74
+
+#next in cmus playlist
+"cmus-remote --next"
+m:0x14 + c:76
+
+#cmus switch to browser view
+# square function keys
+"cmus-remote --raw 'view browser'"
+m:0x10 + c:70
+
+#show cmus queue
+# square function key with tail
+"cmus-remote --raw 'view queue'"
+m:0x10 + c:71
+
+#cmus toggle repeat
+#repeat key
+"cmus-remote --raw 'toggle repeat_current'"
+m:0x10 + c:69
+
+# shutdown
+"poweroff"
+m:0x11 + c:124
+#shift + powerbutton
+
+"xbacklight -dec 10"
+m:0x10 + c:72
+
+"xbacklight -inc 10"
+m:0x10 + c:73

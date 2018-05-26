@@ -1,0 +1,43 @@
+conky.config = {
+	background = false,
+	out_to_console = true,
+	out_to_x = false,
+	override_utf8_locale = false,
+	update_interval = 1,
+	total_run_times = 0,
+	use_xft = false,
+	no_buffers = true,
+	gap_y = 140,
+	double_buffer = true
+}
+
+conky.text = [[
+${execpi 180 python /home/aidan/.config/conky/gmail.py}\
+${if_match "${exec bash /home/aidan/.config/conky/cmus-running.sh}" == "1"}\
+${if_match "${exec cmus-remote -Q | grep status | cut -d' ' -f2}"  =="playing"}\
+^i(/home/aidan/.config/conky/cmus-play.xpm)\
+${endif}\
+${if_match "${exec cmus-remote -Q | grep status | cut -d' ' -f2}" =="paused"}\
+^i(/home/aidan/.config/conky/cmus-pause.xpm)\
+${endif}\
+^fg(\#FF8300)${exec cmus-remote -Q 2>/dev/null | grep ' artist ' | cut -c12- | sed 's/$/:/'}\
+${if_match "${exec cmus-remote -Q 2>/dev/null | grep -c title}" == "1"} \
+^fg(\#eee8d5)${exec cmus-remote -Q 2>/dev/null | grep title | cut -d ' ' -f3-}\
+${else} \
+^fg(\#eee8d5)${exec cmus-remote -Q 2>/dev/null | grep file | sed -re 's/^.+\///'| sed -e 's/....$//g'}\
+${endif} \
+^fg(\#ff007f)${exec cmus-remote -Q 2>/dev/null | grep position | cut -c10- | xargs /home/aidan/.config/conky/time-convert.py}/\
+^fg(\#ff007f)${exec cmus-remote -Q 2>/dev/null | grep duration | cut -c10- | xargs /home/aidan/.config/conky/time-convert.py} | \
+${endif}\
+^fg(\#6495ed)vol: \
+${if_match "${exec amixer -c 0 get Master |grep Mono: | cut -c3- | cut -d' ' -f6 | cut -c2-3}" == "on"}\
+${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | cut -c1-6} | \
+${else}[MM] | \
+${endif}\
+^fg(\#b58900)${hwmon 1 temp 1}°C | \
+^fg(\#839496)CPU ${cpu cpu0} ${cpu cpu1} | \
+^fg(\#2aa198)${execpi 300 cat /sys/class/power_supply/BAT0/capacity}% | \
+^fg(\#b58900)${mem} | \
+^fg(\#859900)${time %a %d %m/%y} \
+^fg(\#eee8d5)${time %R} \
+]]
