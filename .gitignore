@@ -16,3 +16,4 @@ ssh/dell/id_rsa
 mutt/password
 conky/password.py
 calibre
+weechat/logs/
