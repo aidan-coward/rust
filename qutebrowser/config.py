@@ -13,8 +13,8 @@ config.bind('<Control-Shift-Tab','tab-prev 1')
 config.bind('t','set-cmd-text --space :open --tab')
 
 # open quickmark with go
-config.unbind('go', mode='normal') 
-config.bind('go','set-cmd-text --space :quickmark-load')
+#config.unbind('go', mode='normal') 
+#config.bind('go','set-cmd-text --space :quickmark-load')
 
 # set search engines
 c.url.searchengines = {
