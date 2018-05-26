@@ -1,0 +1,302 @@
+2018-05-25 16:23:21	-->	jade-sky (aidan@moz-i1afal.dsl.bell.ca) has joined #rust
+2018-05-25 16:23:21	--	Topic for #rust is "Rust general discussion | Current release: 1.26.0 | Playground https://play.rust-lang.org/ | Forum https://users.rust-lang.org/ | New user channel: #rust-beginners | Conduct https://www.rust-lang.org/conduct.html | Logs https://mozilla.logbot.info/rust/ https://botbot.me/mozilla/rust"
+2018-05-25 16:23:21	--	Topic set by steveklabnik (root@moz-fft.uo8.55.45.IP) on Thu, 10 May 2018 13:20:14
+2018-05-25 16:23:21	--	Channel #rust: 1381 nicks (17 ops, 0 halfops, 1 voice, 1363 normals)
+2018-05-25 16:23:24	--	Channel created on Mon, 05 Dec 2011 23:19:50
+2018-05-25 16:24:14	<--	ytausky (textual@moz-lqd1eh.dyn.telefonica.de) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:25:56	-->	ytausky (textual@moz-lqd1eh.dyn.telefonica.de) has joined #rust
+2018-05-25 16:26:08	GreenJello	trying to get a basic hyper server working (off master branch) It's saying I need a hyper::Error, but I have no idea how to get one https://gist.github.com/brigand/50eb1dd6819d2f9ce0285b69fd6d0366
+2018-05-25 16:26:14	<--	context (context@moz-becpij.zro.net) has quit (Connection closed)
+2018-05-25 16:26:27	<--	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has quit (Connection closed)
+2018-05-25 16:26:30	-->	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has joined #rust
+2018-05-25 16:26:40	GreenJello	https://imgur.com/a/6Gzjctt
+2018-05-25 16:26:42	<--	BitPuffin (isak@moz-49vfs2.bredband.comhem.se) has quit (Connection closed)
+2018-05-25 16:26:45	<--	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has quit (Connection closed)
+2018-05-25 16:28:00	Mutabah	GreenJello: Does the StdError trait have anything interesting?
+2018-05-25 16:28:12	sarnold	GreenJello: I think you may be looking at that error slightly backwards..
+2018-05-25 16:28:22	Arcaelyx	GreenJello: Fancy seeing you round these here parts
+2018-05-25 16:28:34	GreenJello	o/
+2018-05-25 16:28:37	sarnold	GreenJello: the thing isyou've got a geo_ip::locate() and it returns *something* , but that something it returns doesn't implement the method you're trying tocall
+2018-05-25 16:29:15	GreenJello	the return type is impl Future<Item = GeoLoc, Error = String>
+2018-05-25 16:29:20	sarnold	GreenJello: so perhaps your and_then() should be something else, or removed entirely? afterall if the locate() method is returning a String, its api says it can't fail?
+2018-05-25 16:30:01	GreenJello	the Item isn't a string, it's a GeoLoc which implements Serialize from serde
+2018-05-25 16:31:24	<--	netrino (netrino@moz-csb.sqm.159.185.IP) has quit (Quit: My MacBook has gone to sleep. ZZZzzz…)
+2018-05-25 16:31:48	-->	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has joined #rust
+2018-05-25 16:32:05	GreenJello	and and_then is defined on Future, so I don't know how it couldn't exist there
+2018-05-25 16:32:35	GreenJello	I have a `use futures::Future` in both files
+2018-05-25 16:33:16	Chronostic	dude, GreenJello
+2018-05-25 16:33:22	Chronostic	Aren't you also in ##javascript on freenode?
+2018-05-25 16:33:42	Arcaelyx	And #reactjs
+2018-05-25 16:33:49	GreenJello	Chronostic, yep :-) trying to learn rust
+2018-05-25 16:33:59	Arcaelyx	It's a small world after all
+2018-05-25 16:34:12	Chronostic	GreenJello, you and I both. Maybe I'll be decent at rust at the same time you are!
+2018-05-25 16:34:22	Chronostic	What are you using to learn? I assume you're not just asking on irc
+2018-05-25 16:34:28	<--	TobiasFar (tfar@moz-k0rqoo.sfpv.svop.04f8.2a01.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:34:52	<--	Dean4Devil (Me@moz-r1t.s3i.214.85.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:35:26	GreenJello	second edition of the book, and then I fight with rust for a couple hours, and then ask on IRC if I'm still stuck
+2018-05-25 16:35:50	<--	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:36:24	Chronostic	GreenJello, what are you building? Examples, or what else?
+2018-05-25 16:36:54	-->	TobiasFar (tfar@moz-k0rqoo.sfpv.svop.04f8.2a01.IP) has joined #rust
+2018-05-25 16:36:56	-->	andy-bell (yourhost@moz-72j.9qp.70.185.IP) has joined #rust
+2018-05-25 16:37:07	<--	jimb (user@moz-6p2.v0b.115.97.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:37:54	GreenJello	Chronostic, working on a program for work currently; it tries to find the user's location by ip, takes a search string and finds cities near the user, and returns those results
+2018-05-25 16:38:16	Chronostic	GreenJello, that's nifty.
+2018-05-25 16:38:45	-->	orks_ (orks@moz-d6o.qes.84.93.IP) has joined #rust
+2018-05-25 16:39:22	GreenJello	I really don't understand the type error here :/
+2018-05-25 16:40:56	<--	KiChjang (keithyeung@moz-uqk.iiq.141.207.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:40:58	<--	andy-bell (yourhost@moz-72j.9qp.70.185.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:41:39	<--	orks (orks@moz-0nr.2n6.84.93.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:42:36	<--	rschifflin (randy@moz-a0huqg.lv.cox.net) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:44:11	-->	jtojnar (jtojnar@moz-b26hm7.pks.muni.cz) has joined #rust
+2018-05-25 16:44:25	-->	repnop (quassel@moz-avv5f3.zoominternet.net) has joined #rust
+2018-05-25 16:44:27	-->	Dean4Devil (Me@moz-0up2a9.1lek.99rh.0238.2a01.IP) has joined #rust
+2018-05-25 16:44:52	<--	gcp (gcp@moz-bc6ijn.org) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:46:36	<--	ytausky (textual@moz-lqd1eh.dyn.telefonica.de) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:47:04	<--	jsgf_ (jsgf@moz-ceunc9.af01.grs8.010d.2620.IP) has quit (Quit: My MacBook has gone to sleep. ZZZzzz…)
+2018-05-25 16:47:09	-->	jsgf (jsgf@moz-ceunc9.af01.grs8.010d.2620.IP) has joined #rust
+2018-05-25 16:47:11	-->	gcp (gcp@moz-bc6ijn.org) has joined #rust
+2018-05-25 16:47:28	<--	lifeless (robertc@moz-rjasg9.spark.co.nz) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:47:50	-->	lifeless (robertc@moz-vddho4.spark.co.nz) has joined #rust
+2018-05-25 16:48:14	-->	ytausky (textual@moz-lqd1eh.dyn.telefonica.de) has joined #rust
+2018-05-25 16:48:21	<--	jschievink (jonas@moz-4640hb.pools.vodafone-ip.de) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:48:23	-->	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has joined #rust
+2018-05-25 16:51:05	<--	jrmuizel (jrmuizel@moz-8ridna.cpe.pppoe.ca) has quit (A TLS packet with unexpected length was received.)
+2018-05-25 16:51:28	<--	Yruama_Lairba_ (Yruama_Lair@moz-mcj6ga.abo.bbox.fr) has quit (Quit: Leaving)
+2018-05-25 16:52:25	<--	JAlbers (jalbers@moz-d1rdpa.il.comcast.net) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:52:38	-->	niconii (nicole@moz-q0tu7s.midco.net) has joined #rust
+2018-05-25 16:52:38	--	Mode #rust [+ao niconii niconii] by ChanServ
+2018-05-25 16:54:54	-->	djapo (archie@moz-bop0s4.hstntx.sbcglobal.net) has joined #rust
+2018-05-25 16:55:22	<--	_dP_ (dP@moz-h0npvm.spb.TiERA.org) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:55:53	<--	barzi (barzi@moz-mt23iv.rev.sfr.net) has quit (Connection closed)
+2018-05-25 16:55:59	-->	barzi (barzi@moz-mt23iv.rev.sfr.net) has joined #rust
+2018-05-25 16:56:44	<--	ytausky (textual@moz-lqd1eh.dyn.telefonica.de) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:57:36	<--	[spook] (user@moz-9cs.qua.193.134.IP) has quit (Ping timeout: 121 seconds)
+2018-05-25 16:57:41	<--	ohnx (notohnx@moz-bn8kbb.masonx.ca) has quit (Quit: No Ping reply in 180 seconds.)
+2018-05-25 16:57:58	-->	ytausky (textual@moz-lqd1eh.dyn.telefonica.de) has joined #rust
+2018-05-25 16:58:42	-->	ohnx (notohnx@moz-bn8kbb.masonx.ca) has joined #rust
+2018-05-25 17:01:44	GreenJello	okay, so more focused code sample: https://gist.github.com/brigand/6e1ecc4a16305036d92150d26747e3f8
+2018-05-25 17:02:50	sarnold	ow :)
+2018-05-25 17:03:57	-->	safwan (uid93576@moz-e1sk3h.brockwell.irccloud.com) has joined #rust
+2018-05-25 17:04:26	GreenJello	any thoughts on this would be appreciated. I just don't know which direction to go in for solving this problem
+2018-05-25 17:04:37	-->	stephaneyfx (stephaneyfx@moz-apm.mv8.157.192.IP) has joined #rust
+2018-05-25 17:04:47	-->	lifeless_ (robertc@moz-9hdfu2.spark.co.nz) has joined #rust
+2018-05-26 06:35:52	--	irc: disconnected from server
+2018-05-26 06:36:03	-->	jade-sky (aidan@moz-i1afal.dsl.bell.ca) has joined #rust
+2018-05-26 06:36:03	--	Topic for #rust is "Rust general discussion | Current release: 1.26.0 | Playground https://play.rust-lang.org/ | Forum https://users.rust-lang.org/ | New user channel: #rust-beginners | Conduct https://www.rust-lang.org/conduct.html | Logs https://mozilla.logbot.info/rust/ https://botbot.me/mozilla/rust"
+2018-05-26 06:36:03	--	Topic set by steveklabnik (root@moz-fft.uo8.55.45.IP) on Thu, 10 May 2018 13:20:14
+2018-05-26 06:36:04	--	Channel #rust: 1375 nicks (17 ops, 0 halfops, 1 voice, 1357 normals)
+2018-05-26 06:36:05	--	Channel created on Mon, 05 Dec 2011 23:19:50
+2018-05-26 06:36:32	-->	chrisccoulson (chr1s@moz-oo6mn7.uno.uk.net) has joined #rust
+2018-05-26 06:36:37	<--	chrisccoulson (chr1s@moz-oo6mn7.uno.uk.net) has quit (Connection closed)
+2018-05-26 06:36:49	<--	fsasm_ (fsasm@moz-0adr8h.highway.telekom.at) has quit (Ping timeout: 121 seconds)
+2018-05-26 06:37:30	<--	gsimondon (ernad@moz-0u5318.bin1-cpe1.syseleven.net) has quit (Ping timeout: 121 seconds)
+2018-05-26 06:39:00	<--	jcnmark6 (jcnmark6@moz-mc0.f7p.15.51.IP) has quit (Quit: ZNC 1.7.0 - https://znc.in)
+2018-05-26 06:39:10	-->	jcnmark6 (jcnmark6@moz-mc0.f7p.15.51.IP) has joined #rust
+2018-05-26 06:40:20	<--	moriarty (moriarty@moz-se2dgk.net) has quit (Ping timeout: 121 seconds)
+2018-05-26 06:40:37	-->	kefin_ (kefin@moz-t5j.bbc.113.188.IP) has joined #rust
+2018-05-26 06:40:52	-->	jtojnar_ (jtojnar@moz-b26hm7.pks.muni.cz) has joined #rust
+2018-05-26 06:40:58	<--	dpc1 (dpc@moz-lfs.qsh.97.103.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 06:41:00	<--	jtojnar (jtojnar@moz-b26hm7.pks.muni.cz) has quit (Client exited)
+2018-05-26 06:41:08	--	jtojnar_ is now known as jtojnar
+2018-05-26 06:43:45	sebk	...?
+2018-05-26 06:43:53	sebk	that looks fishy
+2018-05-26 06:44:26	sebk	why would you encode a freshly allocated memory section…
+2018-05-26 06:48:16	<--	stuarth (stuarth@moz-3ff4pn.vw.shawcable.net) has quit (A TLS packet with unexpected length was received.)
+2018-05-26 06:48:38	-->	stuarth (stuarth@moz-3ff4pn.vw.shawcable.net) has joined #rust
+2018-05-26 06:48:39	--	irc: disconnected from server
+2018-05-26 07:40:44	-->	jade-sky (aidan@moz-i1afal.dsl.bell.ca) has joined #rust
+2018-05-26 07:40:44	--	Topic for #rust is "Rust general discussion | Current release: 1.26.0 | Playground https://play.rust-lang.org/ | Forum https://users.rust-lang.org/ | New user channel: #rust-beginners | Conduct https://www.rust-lang.org/conduct.html | Logs https://mozilla.logbot.info/rust/ https://botbot.me/mozilla/rust"
+2018-05-26 07:40:44	--	Topic set by steveklabnik (root@moz-fft.uo8.55.45.IP) on Thu, 10 May 2018 13:20:14
+2018-05-26 07:40:45	--	Channel #rust: 1377 nicks (18 ops, 0 halfops, 1 voice, 1358 normals)
+2018-05-26 07:40:46	--	Channel created on Mon, 05 Dec 2011 23:19:50
+2018-05-26 07:42:24	-->	cdown (cdown@moz-6q0.cn1.98.88.IP) has joined #rust
+2018-05-26 07:43:42	-->	artfwo (artfwo@moz-jbr.h02.230.185.IP) has joined #rust
+2018-05-26 07:44:19	-->	npmccallum (npmccallum@moz-9tof33.wlfrct.sbcglobal.net) has joined #rust
+2018-05-26 07:45:50	<--	dpc1 (dpc@moz-lfs.qsh.97.103.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 07:46:11	-->	niklasl (niklasl@moz-o5s68d.bredband.comhem.se) has joined #rust
+2018-05-26 07:46:21	-->	davraine_ (davraine@moz-cdd949.dsl.bell.ca) has joined #rust
+2018-05-26 07:46:34	<--	davraine (davraine@moz-cdd949.dsl.bell.ca) has quit (Quit: Leaving)
+2018-05-26 07:47:40	-->	FreeMasen (FreeMasen@moz-2938ok.mn.comcast.net) has joined #rust
+2018-05-26 07:49:58	-->	Aqo_ (Aqo@moz-nl58rm.inter.net.il) has joined #rust
+2018-05-26 07:50:13	-->	gentlehelm (jr@moz-kfj.gi2.72.189.IP) has joined #rust
+2018-05-26 07:50:14	<--	niklasl (niklasl@moz-o5s68d.bredband.comhem.se) has quit (Ping timeout: 121 seconds)
+2018-05-26 07:52:06	-->	niklasl (niklasl@moz-3ao0qh.bredband.comhem.se) has joined #rust
+2018-05-26 07:52:07	<--	Aqo (Aqo@moz-nl58rm.inter.net.il) has quit (Ping timeout: 121 seconds)
+2018-05-26 07:52:07	--	Aqo_ is now known as Aqo
+2018-05-26 07:52:12	-->	dmilith_ (dmilith@moz-nbkfek.dynamic.chello.pl) has joined #rust
+2018-05-26 07:55:09	-->	niklasl2 (niklasl@moz-o5s68d.bredband.comhem.se) has joined #rust
+2018-05-26 07:55:48	-->	Lilly (Lilly@moz-leodsg.bredband.comhem.se) has joined #rust
+2018-05-26 07:56:09	<--	niklasl (niklasl@moz-3ao0qh.bredband.comhem.se) has quit (Ping timeout: 121 seconds)
+2018-05-26 07:58:05	<--	meebl (Mibbit@moz-3ptoph.bbcust.telenor.se) has quit (Quit: http://www.mibbit.com ajax IRC Client)
+2018-05-26 07:59:40	gentlehelm	is there a way to limit the a generic struct to only floating point types?
+2018-05-26 08:01:51	talchas	you could use the num crate's Float trait
+2018-05-26 08:02:46	-->	andyhoang (andyhoang@moz-083.93p.187.14.IP) has joined #rust
+2018-05-26 08:03:28	<--	Dodo (Mibbit@moz-jpnv84.dynamic.caiway.nl) has quit (Quit: http://www.mibbit.com ajax IRC Client)
+2018-05-26 08:04:00	-->	cybai_ (cybai@moz-i2acjj.kbronet.com.tw) has joined #rust
+2018-05-26 08:04:09	<--	cybai_ (cybai@moz-i2acjj.kbronet.com.tw) has quit (Quit: )
+2018-05-26 08:04:52	<--	zacmps (zacmps@moz-qbt8cd.ihug.co.nz) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:05:52	-->	zacmps (zacmps@moz-oftll6.me7q.el68.7000.2407.IP) has joined #rust
+2018-05-26 08:05:59	-->	paradoxspiral (paradoxspir@moz-mpjde6.k6bs.6dnu.04f8.2a01.IP) has joined #rust
+2018-05-26 08:06:31	-->	lillypad_calyx (textual@moz-q2t2dr.qepp.7jih.01c2.2601.IP) has joined #rust
+2018-05-26 08:07:52	gentlehelm	it's weird, lint complains that can't find `num` in crate root, even though it is there, still `cargo build` works normally... oh well
+2018-05-26 08:08:01	gentlehelm	talchas: thank you :)
+2018-05-26 08:09:25	<--	nairware (CELLIS-W10@moz-4mjo9q.mycingular.net) has quit (Quit: Leaving.)
+2018-05-26 08:09:40	<--	zach (zach@moz-cbdjgs.raasta.org) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:10:18	-->	zach (zach@moz-cbdjgs.raasta.org) has joined #rust
+2018-05-26 08:10:41	<--	tacoda (tacoda@moz-n1t.6ar.20.184.IP) has quit (Quit: Leaving)
+2018-05-26 08:10:44	-->	prz (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has joined #rust
+2018-05-26 08:10:45	-->	prz_ (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has joined #rust
+2018-05-26 08:11:21	<--	prz_ (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has quit (Connection closed)
+2018-05-26 08:11:21	<--	prz (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has quit (Connection closed)
+2018-05-26 08:11:37	-->	mp (mp@moz-v75a50.cx) has joined #rust
+2018-05-26 08:11:42	-->	prz_ (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has joined #rust
+2018-05-26 08:11:43	-->	prz (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has joined #rust
+2018-05-26 08:12:00	<--	spastorino (uid27384@moz-i6sgse.brockwell.irccloud.com) has quit (Quit: Connection closed for inactivity)
+2018-05-26 08:12:41	<--	C_U (TheNSA@moz-gd0gah.dynamic.ziggo.nl) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:13:42	-->	nairware (CELLIS@moz-4mjo9q.mycingular.net) has joined #rust
+2018-05-26 08:14:12	<--	djapo (archie@moz-ckk6ft.mycingular.net) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:15:47	<--	prz_ (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:15:48	<--	prz (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:18:09	-->	CensoredUsername (TheNSA@moz-gd0gah.dynamic.ziggo.nl) has joined #rust
+2018-05-26 08:18:58	<--	Quxxy (Quxxy@moz-0nv.jkp.167.59.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:19:22	<--	davraine_ (davraine@moz-cdd949.dsl.bell.ca) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:20:01	-->	hmans (sid565@moz-qh1qoq.hathersage.irccloud.com) has joined #rust
+2018-05-26 08:20:15	hmans	\o/
+2018-05-26 08:20:30	-->	tbodt (textual@moz-k9eceg.frokca.sbcglobal.net) has joined #rust
+2018-05-26 08:20:32	-->	Andlon (andreas@moz-kiec16.hsi07.unitymediagroup.de) has joined #rust
+2018-05-26 08:20:54	<--	Sklopi2 (Sklopi@moz-4eel61.netcologne.de) has quit (Quit: Nettalk6 - www.ntalk.de)
+2018-05-26 08:20:57	Yaniel	今までAMDを話していますか
+2018-05-26 08:21:18	-->	jimb (user@moz-6p2.v0b.115.97.IP) has joined #rust
+2018-05-26 08:21:20	Yaniel	fucking daminit, wrong channel
+2018-05-26 08:21:34	Yaniel	the *one* timeI was tring to make a point
+2018-05-26 08:21:46	Yaniel	trying even
+2018-05-26 08:22:17	-->	andy-bell (yourhost@moz-72j.9qp.70.185.IP) has joined #rust
+2018-05-26 08:22:50	<--	nairware (CELLIS@moz-4mjo9q.mycingular.net) has quit (Quit: Leaving.)
+2018-05-26 08:25:00	-->	alexkitchens (alexkitchen@moz-6hpj9b.dyn.suddenlink.net) has joined #rust
+2018-05-26 08:25:38	<--	sytherax (sytherax__@moz-m5orm7.tpgi.com.au) has quit (Connection closed)
+2018-05-26 08:26:19	<--	andy-bell (yourhost@moz-72j.9qp.70.185.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:26:22	-->	ijks (ijks@moz-t64tfr.sshunet.nl) has joined #rust
+2018-05-26 08:26:57	<--	Lilly (Lilly@moz-leodsg.bredband.comhem.se) has quit (Quit: Zzz...)
+2018-05-26 08:29:12	<--	alexkitchens (alexkitchen@moz-6hpj9b.dyn.suddenlink.net) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:29:18	-->	sytherax (sytherax__@moz-m5orm7.tpgi.com.au) has joined #rust
+2018-05-26 08:29:25	-->	Aquazi (Aquazi@moz-otf.t33.233.95.IP) has joined #rust
+2018-05-26 08:29:49	<--	Zoxc (quassel@moz-t8u5l9.93-89-45.enivest.net) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:30:56	-->	djapo (archie@moz-ckk6ft.mycingular.net) has joined #rust
+2018-05-26 08:31:11	<--	ytausky (textual@moz-bnvsli.dyn.telefonica.de) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:31:38	-->	MaulingMonkey (monkey@moz-7ju5lf.wa.comcast.net) has joined #rust
+2018-05-26 08:32:11	<--	pcwalton (pcwalton@moz-21mp4f.ca.comcast.net) has quit (Quit: My MacBook has gone to sleep. ZZZzzz…)
+2018-05-26 08:32:26	-->	davraine_ (davraine@moz-cdd949.dsl.bell.ca) has joined #rust
+2018-05-26 08:32:32	pinkisntwell_	In a method that takes &mut self, how do I call another method that takes non-mut &self?
+2018-05-26 08:32:42	-->	ytausky (textual@moz-bnvsli.dyn.telefonica.de) has joined #rust
+2018-05-26 08:34:13	<--	MaulingMonkey2 (monkey@moz-7ju5lf.wa.comcast.net) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:34:30	ziman	just call it
+2018-05-26 08:35:10	pinkisntwell_	ziman: I get "cannot borrow `self.lens` as immutable because `*self` is also borrowed as mutable"
+2018-05-26 08:35:55	ziman	that's because you're in a match block on *self or something, aren't you?
+2018-05-26 08:36:26	pinkisntwell_	ziman: no i'm not
+2018-05-26 08:36:51	ziman	it would be better to paste the code of that function; it's not the coercion from &mut T to &T but something else
+2018-05-26 08:37:16	pinkisntwell_	ziman: i'm probably doing something really wrong. here is my code: https://paste.fedoraproject.org/paste/o~FQ6XKZNrlyytsscogLhA
+2018-05-26 08:37:55	m0rphism	pinkisntwell_: Here's an example where it works: https://play.rust-lang.org/?gist=5b076b54fd3b62dbb21eb429029ff68c&version=stable&mode=debug
+2018-05-26 08:38:24	ziman	i suspect that self.inc takes &mut Self, doesn't it?
+2018-05-26 08:38:34	pinkisntwell_	ziman: yes it does
+2018-05-26 08:38:36	-->	jamesmunns (root@moz-it3.mrf.101.46.IP) has joined #rust
+2018-05-26 08:38:55	pinkisntwell_	m0rphism: well in my case it doesn't work
+2018-05-26 08:39:19	-->	prz (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has joined #rust
+2018-05-26 08:39:21	<--	prz (prz@moz-ad2tec.srcp.s7l6.0306.2602.IP) has quit (Connection closed)
+2018-05-26 08:39:41	ziman	so what happens there is that Self::inc takes two arguments: (&mut Self, &T)
+2018-05-26 08:39:42	-->	prz (prz@moz-pf3.tv0.129.66.IP) has joined #rust
+2018-05-26 08:39:43	-->	prz_ (prz@moz-pf3.tv0.129.66.IP) has joined #rust
+2018-05-26 08:39:51	ziman	where the second one aliases part of the first one
+2018-05-26 08:40:23	m0rphism	pinkisntwell_: I know, just wanted to point out that the problem depends on more context
+2018-05-26 08:40:31	ziman	so you need to restructure your code to remove that aliasing
+2018-05-26 08:40:37	pinkisntwell_	ziman: no, here is the signature of inc:     fn inc(&mut self, i: usize)
+2018-05-26 08:40:46	ziman	hmmm
+2018-05-26 08:41:05	ziman	in that case, you can always let-bind self.lens.len()-1 under some name
+2018-05-26 08:41:22	ziman	i'm a bit surprised that rust doesn't do it for you but I'm not an expert, either
+2018-05-26 08:41:43	pinkisntwell_	ziman: I tried that as well but it gives the exact same error
+2018-05-26 08:41:47	ziman	huh
+2018-05-26 08:41:52	pinkisntwell_	how can it be so hard to call a simple function
+2018-05-26 08:44:11	pinkisntwell_	it looks like the only way i can do this is to pre-calculate the value before I call this function and store it on the struct as a field. Then the function can use it from there. What the hell
+2018-05-26 08:44:39	pinkisntwell_	if I have borrowed mutably, why can't it just use the same borrow and has to do another one
+2018-05-26 08:44:48	ziman	also, you might want "return true" on line 3
+2018-05-26 08:45:07	ziman	but that should be unrelated
+2018-05-26 08:45:08	pinkisntwell_	ziman: doesn't make any difference
+2018-05-26 08:45:17	ziman	oh, that's else
+2018-05-26 08:47:00	ziman	hm
+2018-05-26 08:47:04	ziman	let-binding the variable works for me
+2018-05-26 08:47:29	ziman	https://play.rust-lang.org/?gist=7de663eb67eb0d8a131891219a0a0867&version=stable&mode=debug
+2018-05-26 08:48:06	Arnavion	(NLL will make lifting the inner expression out unnecessary)
+2018-05-26 08:48:17	ziman	what's NLL?
+2018-05-26 08:48:22	Arnavion	!nll
+2018-05-26 08:48:22	+rustbot	Roadmap issue: https://github.com/rust-lang/rust-roadmap/issues/16. Introduction to non-lexical lifetimes: http://smallcultfollowing.com/babysteps/blog/2016/04/27/non-lexical-lifetimes-introduction/ Use #![feature(nll)] in nightly.
+2018-05-26 08:48:32	pinkisntwell_	ziman: thanks! i had tried    let x = &(self.lens);  self.inc(x.len());
+2018-05-26 08:48:45	pinkisntwell_	ziman: I don't know why one works and the other doesn't
+2018-05-26 08:48:47	<--	OmniMancer (OmniMancer@moz-mqb.ip3.100.101.IP) has quit (Quit: Leaving.)
+2018-05-26 08:49:08	ziman	because &(self.lens) creates a variable "x" that aliases a part of self
+2018-05-26 08:49:18	ziman	so you can't borrow self mutably on the next row
+2018-05-26 08:49:19	kennytm	eval: fn g(a: &mut bool) {} g(&mut false);
+2018-05-26 08:49:22	--	Notice(eval): ()
+2018-05-26 08:49:23	<--	ytausky (textual@moz-bnvsli.dyn.telefonica.de) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:49:32	ziman	because you have a pointer inside already in scope
+2018-05-26 08:49:37	ziman	erm, reference
+2018-05-26 08:50:12	pinkisntwell_	ziman: wait, the mutable reference is passed as an argument
+2018-05-26 08:50:17	ziman	but when you let-bind an usize, that's just a value, not a reference, so everything's fine -- you basically borrow the lens and return it to compute the new length before you borrow self mutably on the next line again
+2018-05-26 08:50:26	-->	ytausky (textual@moz-bnvsli.dyn.telefonica.de) has joined #rust
+2018-05-26 08:50:41	pinkisntwell_	ziman: how can you do the let binding when self is already borrowed as mutable in the argument of the function?
+2018-05-26 08:50:52	ziman	my sentence is quite messy...
+2018-05-26 08:51:22	ziman	Self::inc() borrows self mutably only *after* you compute the new length
+2018-05-26 08:51:33	ziman	so in the length computation, you can borrow self read-only
+2018-05-26 08:52:20	ziman	but you must not forget to return the borrowed self back, which is not the case when you keep the reference to self.lens
+2018-05-26 08:52:23	pinkisntwell_	but self is already loaded mutably, because this is the function argument 
+2018-05-26 08:52:30	ziman	my code computes the new usize and then returns self
+2018-05-26 08:52:33	ziman	well, unborrows :)
+2018-05-26 08:52:40	pinkisntwell_	so how can it be loaded again?
+2018-05-26 08:52:54	ziman	in the body of a function, its arguments are available to you
+2018-05-26 08:53:32	pinkisntwell_	ziman: yes, so those do not count as mutable references? i'm very confused now
+2018-05-26 08:55:04	ziman	lexically, you can have several mutable references! if main() calls f(&mut T) which calls g(&mut T) which calls h(&mut T), then inside h(), you have three mutable references on the stack! :)
+2018-05-26 08:55:19	ziman	but that's all right because g() cannot do anything with its mutable reference until h() returns
+2018-05-26 08:55:22	-->	AndroUser2 (androirc@moz-523.qpq.179.143.IP) has joined #rust
+2018-05-26 08:55:35	pinkisntwell_	okay at this point i let it go
+2018-05-26 08:55:54	pinkisntwell_	i wanted to program the computer, not turn my mind into a computer
+2018-05-26 08:56:17	pinkisntwell_	as long as you gave me the way to do it, that's good enough for me
+2018-05-26 08:56:26	ziman	you probably need someone who explains it better :)
+2018-05-26 08:57:57	<--	nj0rd (nj0rd@moz-i82kfi.versanet.de) has quit (Ping timeout: 121 seconds)
+2018-05-26 08:58:03	Arnavion	self.lens.len() takes a borrow of self.lens, and thus self. A borrow of an expression lasts atleast as long as the statement it's in. Thus in   self.inc(self.lens.len());   the borrow of self.lens lasts as long as the semi-colon. But if it lasts that long   self.inc   cannot borrow &mut self since the two borrows overlap
+2018-05-26 08:58:17	Arnavion	... and it's illegal to borrow &mut value while a &value borrow is in effect
+2018-05-26 08:58:59	Arnavion	By splitting   let foo = self.lens.len() - 1;   into its own statement the borrow of self.lens() ends at *that* semi-colon, and thus the next line calling self.inc() is free to borrow &mut self
+2018-05-26 08:59:22	<--	FreeMasen (FreeMasen@moz-2938ok.mn.comcast.net) has quit (Connection closed)
+2018-05-26 08:59:49	pinkisntwell_	Arnavion: Okay, and as ziman said, the mutable self that is passed as an argument does not count
+2018-05-26 08:59:59	Arnavion	"does not count" ?
+2018-05-26 09:00:17	-->	backnforth (backnforth@moz-soe.na3.162.142.IP) has joined #rust
+2018-05-26 09:00:26	Arnavion	If it did not count we would not be having this conversation
+2018-05-26 09:00:31	-->	chrisdotcode (quassel@moz-q8sfoa.jv55.dlrr.fcc8.2607.IP) has joined #rust
+2018-05-26 09:00:31	j_ey	I have a lookup table that I'm generating at runtime. I'm going to return it as Box<[T]> rather than Vec<T>, anything I should be aware of?
+2018-05-26 09:01:20	Arnavion	j_ey: That's fine. Box<[T]> means the slice cannot be grown or shrunk, which is fine for a constant
+2018-05-26 09:01:42	<--	AndroUser2 (androirc@moz-523.qpq.179.143.IP) has quit (Connection closed)
+2018-05-26 09:02:16	pinkisntwell_	Arnavion: If it counts why can the self.inc() call borrow mutably if self is borrowed mutably already?
+2018-05-26 09:02:16	j_ey	Arnavion: yep, that's why I'm switching to it. just wondered if there was any 'pitfalls' to be aware of
+2018-05-26 09:03:15	Arnavion	pinkisntwell_: It's fine to take a &mut value and borrow a &mut value from it
+2018-05-26 09:03:39	Arnavion	pinkisntwell_: A &mut borrow is a unique borrow. A & borrow is a shared borrow. If you have a &mut you know you're the only one who has it
+2018-05-26 09:04:06	Arnavion	pinkisntwell_: But if there's a & borrow in scope then you don't know who else has a & borrow at the same time, thus you cannot make a &mut borrow
+2018-05-26 09:04:51	pinkisntwell_	Arnavion: Why is it a problem  to do   self.inc(self.lens.len())     but it is not a problem to do     let foo = self.lens().len(), if a mutable borrow already exists (the self)
+2018-05-26 09:05:04	pinkisntwell_	I don't see what's different
+2018-05-26 09:05:46	Arnavion	pinkisntwell_: If you already have a &mut borrow, then there's no problem to take a & borrow of it. Again, you already have unique access to the value. There's nothing wrong to take a shared access to it yourself
+2018-05-26 09:06:22	pinkisntwell_	Arnavion: okay so why can't I do   self.inc(self.lens.len()) ?  All it's doing is taking a mutable reference which you said I can do.
+2018-05-26 09:06:43	-->	mathieu (mathieu@moz-qd8q28.legacytubes.illyse.net) has joined #rust
+2018-05-26 09:06:45	Arnavion	<Arnavion> pinkisntwell_: But if there's a & borrow in scope then you don't know who else has a & borrow at the same time, thus you cannot make a &mut borrow
+2018-05-26 09:07:46	<--	niklasl2 (niklasl@moz-o5s68d.bredband.comhem.se) has quit (Ping timeout: 121 seconds)
+2018-05-26 09:08:02	pinkisntwell_	wait so if i have &mut I can take a &non-mut but if I have a &non-mut i can't take a &mut?
+2018-05-26 09:08:04	-->	anjumkaiser (anjumkaiser@moz-m2d.678.50.39.IP) has joined #rust
+2018-05-26 09:08:17	Arnavion	Correct, for the reasons I gave above
+2018-05-26 09:08:18	pinkisntwell_	is this what you're saying?
+2018-05-26 09:08:30	pinkisntwell_	Arnavion: but this doesn't make sense, in both cases the end result is the same
+2018-05-26 09:08:39	-->	dpc1 (dpc@moz-lcf.au4.210.103.IP) has joined #rust
+2018-05-26 09:09:05	pinkisntwell_	Arnavion: You have two references, one mut and one non-mut. You are saying that the order I in which I took the references is important? I find it hard to believe
+2018-05-26 09:09:13	Arnavion	If you have fn foo(slice: &[i32]) do you think you should be allowed to change slice[0] ?
+2018-05-26 09:09:33	<--	mp (mp@moz-v75a50.cx) has quit (Connection closed)
+2018-05-26 09:09:34	-->	AndroUser2 (androirc@moz-523.qpq.179.143.IP) has joined #rust
+2018-05-26 09:09:58	pinkisntwell_	it's non-mut, so no
+2018-05-26 09:10:16	Arnavion	then I don't see why you think it doesn't apply to your case
+2018-05-26 09:10:54	<--	cdown (cdown@moz-6q0.cn1.98.88.IP) has quit (Ping timeout: 121 seconds)
+2018-05-26 09:10:57	pinkisntwell_	Arnavion: anyway, maybe i'm too dumb for this, but I really don't see why the order I borrowed in is important.
+2018-05-26 09:11:25	j_ey	pinkisntwell_: it's not really 'order', but what the original reference is
+2018-05-26 09:11:48	-->	niklasl (niklasl@moz-o5s68d.bredband.comhem.se) has joined #rust

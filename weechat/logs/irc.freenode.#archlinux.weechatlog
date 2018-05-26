@@ -1,0 +1,496 @@
+2018-05-25 16:02:57	-->	jade-sky (~aidan@mtrlpq2911w-lp130-07-70-48-127-111.dsl.bell.ca) has joined #archlinux
+2018-05-25 16:02:57	--	Topic for #archlinux is "Welcome to Arch Linux, Good Luck: https://archlinux.org | Rules: https://goo.gl/XWFreH | Pastebins: https://ptpb.pw https://gist.github.com https://bpaste.net | Become an official Arch Tester: https://goo.gl/48qpvG | If you didn't read the topic you will be eaten by a grue | Check your .pacnew ( https://www.archlinux.org/news/627 )"
+2018-05-25 16:02:57	--	Topic set by jelle (~weechat@archlinux/developer/jelle) on Fri, 20 Apr 2018 16:33:43
+2018-05-25 16:02:57	--	Channel #archlinux: 1733 nicks (1 op, 0 voices, 1732 normals)
+2018-05-25 16:03:00	--	Channel created on Sun, 15 Feb 2004 00:08:31
+2018-05-25 16:03:41	<--	cdchapman (~perturbed@198.60.8.71) has quit (Ping timeout: 245 seconds)
+2018-05-25 16:04:01	-->	SyfiMalik (~z@103.255.7.20) has joined #archlinux
+2018-05-25 16:04:29	SyfiMalik	How can I open a floating app always in a size which I want it to be? I have st terminal which I open as floating but I want it to be resized as I want. WM is bspwm
+2018-05-25 16:05:26	-->	Electrux (~Electrux@27.5.6.116) has joined #archlinux
+2018-05-25 16:05:36	<--	arielp (~arielp@unaffiliated/arielp) has quit (Ping timeout: 260 seconds)
+2018-05-25 16:09:34	<--	Electrux (~Electrux@27.5.6.116) has quit (Ping timeout: 240 seconds)
+2018-05-25 16:12:45	-->	God-Eater (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has joined #archlinux
+2018-05-25 16:13:03	<--	Nicop06 (~nicolas@2604:2000:ded2:dc00:731f:d550:5552:a83c) has quit (Quit: WeeChat 2.1)
+2018-05-25 16:13:30	-->	Nicop06 (~nicolas@2604:2000:ded2:dc00:731f:d550:5552:a83c) has joined #archlinux
+2018-05-25 16:15:54	-->	ivanfon (~ivanfon@unaffiliated/ivanfon) has joined #archlinux
+2018-05-25 16:15:56	<--	Guest30740 (~Ghosthree@unaffiliated/ghosthree3) has quit (Quit: ZNC is kill)
+2018-05-25 16:16:32	jade-sky	according to the manpage of bspwm there is a --resize flag but idk whether you can use it when starting the app
+2018-05-25 16:16:37	jade-sky	https://manpages.debian.org/testing/bspwm/bspwm.1.en.html
+2018-05-25 16:16:39	phrik	Title:bspwm(1) — bspwm — Debian testing — Debian Manpages (at manpages.debian.org)
+2018-05-25 16:16:40	-->	Electrux (~Electrux@27.5.6.116) has joined #archlinux
+2018-05-25 16:16:46	-->	Ghosthree3 (~Ghosthree@unaffiliated/ghosthree3) has joined #archlinux
+2018-05-25 16:17:26	<--	Guanin (~Guanin@p5B3C1E27.dip0.t-ipconnect.de) has quit (Ping timeout: 245 seconds)
+2018-05-25 16:19:18	<--	jcarl43 (~jcarl@vpn-ca01.nbsig.com) has quit (Quit: WeeChat 2.1)
+2018-05-25 16:19:33	SyfiMalik	Thanks jade-sky
+2018-05-25 16:19:54	<--	Eiii (~eiii@unaffiliated/eiii) has quit (Quit: !)
+2018-05-25 16:20:41	jade-sky	does it work?
+2018-05-25 16:21:05	<--	Electrux (~Electrux@27.5.6.116) has quit (Ping timeout: 252 seconds)
+2018-05-25 16:21:46	SyfiMalik	I haven't tried it. I'm gonna read it now
+2018-05-25 16:21:46	<--	dorsch (~mj@46.128.254.61.dynamic.cablesurf.de) has quit (Ping timeout: 260 seconds)
+2018-05-25 16:21:49	coderobe	!give irreleph4nt xyproblem
+2018-05-25 16:21:50	phrik	irreleph4nt: Tell us what you're REALLY trying to do. http://mywiki.wooledge.org/XyProblem
+2018-05-25 16:21:53	-->	SteveDeFacto (~SteveDeFa@199.241.146.179) has joined #archlinux
+2018-05-25 16:21:53	<--	ivanfon (~ivanfon@unaffiliated/ivanfon) has quit (Quit: Quit)
+2018-05-25 16:22:44	-->	gwash (~gwash@197.51.154.83) has joined #archlinux
+2018-05-25 16:22:56	<--	chaosruler (~chaosrule@unaffiliated/chaosruler) has quit (Ping timeout: 260 seconds)
+2018-05-25 16:23:49	<--	MtotheM (~MtotheM~@h-4-126.A392.priv.bahnhof.se) has quit (Quit: Leaving)
+2018-05-25 16:24:02	-->	AmR|EiSa (~amr@197.246.193.60) has joined #archlinux
+2018-05-25 16:24:09	irreleph4nt	coderobe, I have written a PKGBUILD for a git source which hosts the code for one big project
+2018-05-25 16:24:19	<--	a3Dman (~3Dman@unaffiliated/a3dman) has quit (Quit: Leaving...)
+2018-05-25 16:24:38	AmR|EiSa	How I can get installed pkg list for reinstall when I reinstall the system ?
+2018-05-25 16:25:06	coderobe	irreleph4nt: right, so what are you trying to do
+2018-05-25 16:25:10	irreleph4nt	coderobe, said big project has precompiled .deb and .rpm packages for other distros ... in fact, multiple packages all based on the code in said big project
+2018-05-25 16:25:23	-->	Electrux (~Electrux@27.5.6.116) has joined #archlinux
+2018-05-25 16:25:40	coderobe	right, that's irrelevant when the source exists though
+2018-05-25 16:25:55	irreleph4nt	coderobe, so to make sure it works on Arch the same way it does on other distros, I want makepkg to spit out all these packages as well
+2018-05-25 16:26:03	coderobe	no, you don't
+2018-05-25 16:26:04	beest	don't you mean ... yeah.
+2018-05-25 16:26:21	irreleph4nt	coderobe, why tho?
+2018-05-25 16:26:32	coderobe	i don't even understand what you mean by that.
+2018-05-25 16:26:47	coderobe	are you gonna repackage the two binary sources in the same pkgbuild... for comparison?
+2018-05-25 16:27:01	<--	|3ean (~mog@142.162.58.200) has quit (Ping timeout: 245 seconds)
+2018-05-25 16:27:17	irreleph4nt	coderobe, consider the following list of packages: http://fr2.rpmfind.net/linux/rpm2html/search.php?query=kopano-&submit=Search+...&system=&arch=
+2018-05-25 16:27:17	phrik	Title:RPM resource kopano- (at fr2.rpmfind.net)
+2018-05-25 16:27:49	irreleph4nt	coderobe, most of the packages listed there are compiled from the same source, a single big git project
+2018-05-25 16:27:55	<--	octobanana (~weechat@207.228.78.39) has quit (Read error: Connection reset by peer)
+2018-05-25 16:28:16	irreleph4nt	coderobe, which is hosted here BTW: https://stash.kopano.io/projects/KC/repos/kopanocore/browse
+2018-05-25 16:28:17	phrik	Title:Browse Kopano Core / kopanocore - Bitbucket (at stash.kopano.io)
+2018-05-25 16:28:18	coderobe	right, make a split package. the binary releases are incredibly irrelevant to that
+2018-05-25 16:28:35	-->	a3Dman (~3Dman@unaffiliated/a3dman) has joined #archlinux
+2018-05-25 16:29:09	irreleph4nt	coderobe, the binary releases are what told me that the project contains multiple packages in a single source to begin with ...
+2018-05-25 16:29:16	<--	urodna (~urodna@unaffiliated/urodna) has quit (Read error: Connection reset by peer)
+2018-05-25 16:29:31	irreleph4nt	coderobe, and I have no idea how split packages work with regard to a PKGBUILD file
+2018-05-25 16:29:44	coderobe	!q coderobe
+2018-05-25 16:29:44	phrik	coderobe: <coderobe> there are several pages of docs just about doing exactly that
+2018-05-25 16:29:59	<--	Electrux (~Electrux@27.5.6.116) has quit (Ping timeout: 248 seconds)
+2018-05-25 16:30:05	-->	urodna (~urodna@unaffiliated/urodna) has joined #archlinux
+2018-05-25 16:30:07	<--	webnetvn (uid199738@gateway/web/irccloud.com/x-bvenarvpcfznultx) has quit (Quit: Connection closed for inactivity)
+2018-05-25 16:30:14	coderobe	and it's definitely not provides()
+2018-05-25 16:30:55	irreleph4nt	coderobe, well, I am happy as it is for now. If I run into issues I'll have to look into splitting the packages
+2018-05-25 16:30:58	<--	gffa (~unknown@unaffiliated/gffa) has quit (Quit: sleep)
+2018-05-25 16:31:04	irreleph4nt	But I won't as long as it works
+2018-05-25 16:31:27	coderobe	please fix your pkgbuild before aur submission however.
+2018-05-25 16:31:39	irreleph4nt	coderobe, not going to submit then
+2018-05-25 16:31:41	-->	Eduard_Munteanu (~Eduard_Mu@5-12-82-195.residential.rdsnet.ro) has joined #archlinux
+2018-05-25 16:31:46	coderobe	deal
+2018-05-25 16:32:02	irreleph4nt	coderobe, thanks for the help you have provided!
+2018-05-25 16:32:04	<--	bendo (~bendo@aftr-185-17-205-13.dynamic.mnet-online.de) has quit (Ping timeout: 240 seconds)
+2018-05-25 16:32:06	<--	dwhacksX220 (~dwhacksX2@S01066cb3114903ca.wk.shawcable.net) has quit (Ping timeout: 276 seconds)
+2018-05-25 16:33:33	-->	mahoff (~mahoff@unaffiliated/mahoff) has joined #archlinux
+2018-05-25 16:34:01	<--	God-Eater (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has quit (Quit: Leaving)
+2018-05-25 16:34:22	-->	cdchapman (~perturbed@c-67-169-243-133.hsd1.ut.comcast.net) has joined #archlinux
+2018-05-25 16:34:32	-->	God-Eater (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has joined #archlinux
+2018-05-25 16:34:43	-->	Eiii (~eiii@unaffiliated/eiii) has joined #archlinux
+2018-05-25 16:34:50	<--	blackandblue (~batdownh@gateway/tor-sasl/blackandblue) has quit (Quit: Leaving)
+2018-05-25 16:34:53	coderobe	irreleph4nt: if you ever feel like doing it properly, you can take a look at other split packages as a start. most python2- packages from our repos are built as split packages together with their python- equivalent - https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/python-alembic
+2018-05-25 16:34:54	phrik	Title:PKGBUILD\trunk - svntogit/community.git - Git clone of the 'community' repository (at git.archlinux.org)
+2018-05-25 16:35:11	<--	a3Dman (~3Dman@unaffiliated/a3dman) has quit (Ping timeout: 240 seconds)
+2018-05-25 16:35:25	-->	Electrux (~Electrux@27.5.6.116) has joined #archlinux
+2018-05-25 16:35:45	beest	i've seen pretty much no build documentation, to make a proper split package you'd probably have to poke at the makefile anyway
+2018-05-25 16:36:01	<--	God-Eater (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has quit (Client Quit)
+2018-05-25 16:36:08	<--	mahoff_ (~mahoff@unaffiliated/mahoff) has quit (Ping timeout: 245 seconds)
+2018-05-25 16:36:33	irreleph4nt	coderobe, thanks, I'll review that. It's fairly unlikely though that I'll be splitting given that it's likely to work for me the way it is and it is hence not I that is missing out from me not uploading the PKGBUILD files
+2018-05-25 16:36:55	<--	aTKeefle (~aTKeefle@149.200.214.154) has quit (Ping timeout: 248 seconds)
+2018-05-25 16:37:03	<--	Scotty_Trees (~Scotty_Tr@2601:89:c500:fe2f::f23d) has quit (Remote host closed the connection)
+2018-05-25 16:37:28	-->	Scotty_Trees (~Scotty_Tr@2601:89:c500:fe2f::f23d) has joined #archlinux
+2018-05-25 16:38:11	-->	a3Dman (~3Dman@unaffiliated/a3dman) has joined #archlinux
+2018-05-25 16:38:33	<--	Snis (~snis@2a04:ae07:fc00:12::472) has quit (Ping timeout: 260 seconds)
+2018-05-25 16:38:36	AmR|EiSa	Any help plz ?
+2018-05-25 16:38:38	<--	jdaeira (~jdaeira@c-24-5-123-224.hsd1.ca.comcast.net) has quit (Quit: Leaving)
+2018-05-25 16:38:56	-->	Snis (~snis@2a04:ae07:fc00:12::472) has joined #archlinux
+2018-05-25 16:39:33	-->	Kolya (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has joined #archlinux
+2018-05-25 16:39:47	<--	Electrux (~Electrux@27.5.6.116) has quit (Ping timeout: 252 seconds)
+2018-05-25 16:39:53	<--	vith_ (~vith@unaffiliated/vithos) has quit (Quit: No Ping reply in 180 seconds.)
+2018-05-25 16:40:02	<--	_thelion_ (~matthias@85-90-149-146.hdsl.highway.telekom.at) has quit (Quit: WeeChat 2.1)
+2018-05-25 16:40:19	<--	Guest22307 (~archey1@unaffiliated/archey1) has quit (Quit: Guest22307)
+2018-05-25 16:40:36	ula	pacman -Q
+2018-05-25 16:41:11	-->	vith (~vith@unaffiliated/vithos) has joined #archlinux
+2018-05-25 16:41:14	<--	Kolya (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has quit (Client Quit)
+2018-05-25 16:41:14	-->	Majora320 (~Majora320@unaffiliated/majora320) has joined #archlinux
+2018-05-25 16:41:31	-->	louisdk (~louisdk@static-5-103-138-205.ip.fibianet.dk) has joined #archlinux
+2018-05-25 16:41:37	<--	n3wborn (~n3wborn@unaffiliated/n3wborn) has quit (Ping timeout: 252 seconds)
+2018-05-25 16:41:37	-->	Kolya (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has joined #archlinux
+2018-05-25 16:41:49	Majora320	I'm getting some file conflict errors related to lib32-wayland in the latest updates (since yesterday)
+2018-05-25 16:42:00	-->	aTKeefle (~aTKeefle@213.139.53.124) has joined #archlinux
+2018-05-25 16:42:15	-->	arch3y (~archey1@unaffiliated/archey1) has joined #archlinux
+2018-05-25 16:42:22	coderobe	Majora320: try again later. it's already fixed in testing
+2018-05-25 16:42:25	blurry_light	!lib32-wayland
+2018-05-25 16:42:26	phrik	lib32-wayland is broken right now, we know. Don't worry, your 32-bit GL will work again as soon as the fixed package is moved out of testing.
+2018-05-25 16:42:27	SyfiMalik	How to remove a package with its configurations also removed?
+2018-05-25 16:42:28	blurry_light	^
+2018-05-25 16:42:30	<--	la_croix (~la_croix@94.11.251.2) has quit (Quit: My MacBook has gone to sleep. ZZZzzz…)
+2018-05-25 16:42:36	coderobe	!give blurry_light judges
+2018-05-25 16:42:37	phrik	blurry_light: It was very close, but coderobe won by a nose!
+2018-05-25 16:42:52	blurry_light	I'm on Tor, my excuse is I have lag :P
+2018-05-25 16:42:52	<--	aTKeefle (~aTKeefle@213.139.53.124) has quit (Read error: Connection reset by peer)
+2018-05-25 16:43:14	<--	Kolya (~God-Eater@2605:6000:2507:3e00:f150:7066:a87:a446) has quit (Client Quit)
+2018-05-25 16:43:32	coderobe	SyfiMalik: `man pacman` has some pretty detailed information about that
+2018-05-25 16:44:06	<--	Nightah (~Nightah@unaffiliated/nightah) has quit (Quit: ZNC - https://znc.in)
+2018-05-25 16:44:12	<--	C5OK5Y (~C5OK5Y@ip-78-102-131-4.net.upcbroadband.cz) has quit (Quit: C5OK5Y)
+2018-05-25 16:44:28	SyfiMalik	Do I still need to figure it out myself when I'm already in #archlinux?
+2018-05-25 16:44:30	-->	aTKeefle (~aTKeefle@149.200.214.154) has joined #archlinux
+2018-05-25 16:44:31	-->	dwhacksX220 (~dwhacksX2@S01066cb3114903ca.wk.shawcable.net) has joined #archlinux
+2018-05-25 16:44:47	coderobe	do you need a spoon for that
+2018-05-25 16:44:51	coderobe	is the real question here
+2018-05-25 16:44:58	blurry_light	SyfiMalik, you're in #archlinux , not #spoonfeedme
+2018-05-25 16:45:05	<--	Andrevan (~andrevan@wikipedia/Andrevan) has quit (Quit: WeeChat 2.1)
+2018-05-25 16:45:19	SyfiMalik	:D
+2018-05-25 16:45:26	-->	Electrux (~Electrux@27.5.6.116) has joined #archlinux
+2018-05-25 16:45:46	<--	sigsts (~sigsts@unaffiliated/skyroverr) has quit (Remote host closed the connection)
+2018-05-25 16:46:16	SyfiMalik	I'm driving, my hands aren't free nor eyes
+2018-05-25 16:46:47	<--	Edu4rdSHL (~Edward@fsf/member/edu4rdshl) has quit (Quit: WeeChat 2.1)
+2018-05-25 16:47:29	SyfiMalik	pacman -Rns ?
+2018-05-25 16:47:42	-->	zrts (~zrts@unaffiliated/zrts) has joined #archlinux
+2018-05-25 16:48:06	-->	knorix (knorix@ip98-163-202-148.no.no.cox.net) has joined #archlinux
+2018-05-25 16:48:35	<--	arch3y (~archey1@unaffiliated/archey1) has quit (Ping timeout: 252 seconds)
+2018-05-25 16:49:10	<--	irreleph4nt (~irrelevan@p5B2CCFDF.dip0.t-ipconnect.de) has quit (Quit: Leaving)
+2018-05-25 16:49:56	<--	Electrux (~Electrux@27.5.6.116) has quit (Ping timeout: 245 seconds)
+2018-05-25 16:50:03	-->	sud0x3 (~sud0x3@host-92-21-229-63.as13285.net) has joined #archlinux
+2018-05-25 16:51:33	<--	stooj (~stooj@195.147.242.151) has quit (Ping timeout: 245 seconds)
+2018-05-25 16:52:37	<--	earnestly (~Earnestly@unaffiliated/earnestly) has quit (Ping timeout: 252 seconds)
+2018-05-25 16:53:31	-->	arch3y (~archey1@unaffiliated/archey1) has joined #archlinux
+2018-05-25 16:53:36	<--	Tazmain (~Tazmain@unaffiliated/tazmain) has quit (Remote host closed the connection)
+2018-05-25 16:53:46	-->	sigsts (~sigsts@unaffiliated/skyroverr) has joined #archlinux
+2018-05-25 16:53:49	-->	stooj (~stooj@195.147.242.151) has joined #archlinux
+2018-05-25 16:55:10	-->	djapo (~archie@unaffiliated/djapo) has joined #archlinux
+2018-05-25 16:55:21	djapo	how can I have the mirrorlist reranked ?
+2018-05-25 16:55:32	djapo	I want the ranking to be re-evaluated
+2018-05-25 16:56:18	CubeTheThird	there's a command called rankmirrors
+2018-05-25 16:56:40	-->	Electrux (~Electrux@27.5.6.116) has joined #archlinux
+2018-05-25 16:57:56	-->	j0seph (~j0seph@unaffiliated/imj0seph) has joined #archlinux
+2018-05-25 16:58:02	-->	tomty89 (~user@117.136.12.101) has joined #archlinux
+2018-05-25 16:58:21	djapo	I just read about that, I will try and then try reflector
+2018-05-25 16:58:40	<--	arch3y (~archey1@unaffiliated/archey1) has quit (Ping timeout: 264 seconds)
+2018-05-25 16:59:03	<--	j0seph (~j0seph@unaffiliated/imj0seph) has quit (Client Quit)
+2018-05-25 16:59:35	djapo	is mirrorlist.pacnew the one thats read or just mirrorlist
+2018-05-25 16:59:37	djapo	?
+2018-05-25 16:59:37	<--	caveman (~caveman@unaffiliated/mahmoud) has quit (Quit: bbl)
+2018-05-25 16:59:55	Majora320	just mirrorlist
+2018-05-25 17:00:05	Majora320	the pacnew one was inserted by an archlinux update
+2018-05-25 17:00:11	Majora320	more mirrors must've been added
+2018-05-25 17:00:23	<--	Nicop06 (~nicolas@2604:2000:ded2:dc00:731f:d550:5552:a83c) has quit (Quit: WeeChat 2.1)
+2018-05-25 17:00:29	<--	SyfiMalik (~z@103.255.7.20) has quit (Remote host closed the connection)
+2018-05-25 17:00:32	CubeTheThird	you should do a pacdiff then
+2018-05-25 17:01:04	<--	Electrux (~Electrux@27.5.6.116) has quit (Ping timeout: 240 seconds)
+2018-05-25 17:01:07	<--	viddi (~viddi@2605:a601:800d:1700:be40:9da4:701b:97f1) has quit (Quit: WeeChat 2.1)
+2018-05-25 17:01:46	-->	caveman (~caveman@unaffiliated/mahmoud) has joined #archlinux
+2018-05-25 17:01:48	<--	sigsts (~sigsts@unaffiliated/skyroverr) has quit (Remote host closed the connection)
+2018-05-25 17:02:34	<--	guys (~eschwartz@archlinux/bugwrangler/eschwartz) has quit (Ping timeout: 240 seconds)
+2018-05-25 17:02:53	<--	ztrawhcse (~Thunderbi@archlinux/bugwrangler/eschwartz) has quit (Ping timeout: 252 seconds)
+2018-05-25 17:03:06	djapo	this is what I am running right now sudo sh -c "rankmirrors -n 6 /etc/pacman.d/mirrorlist > /etc/pacman.d/mirrorlist.newrank"
+2018-05-25 17:03:09	-->	s4mu (~s4mu@host206-15-static.12-188-b.business.telecomitalia.it) has joined #archlinux
+2018-05-25 17:03:11	<--	cottoneyejim (~cottoneye@31.204.253.136) has quit (Ping timeout: 260 seconds)
+2018-05-25 17:03:57	-->	therue (~therue@1-162-62-151.dynamic-ip.hinet.net) has joined #archlinux
+2018-05-26 06:35:53	--	irc: disconnected from server
+2018-05-26 06:36:18	-->	jade-sky (~aidan@mtrlpq2911w-lp130-07-70-48-127-111.dsl.bell.ca) has joined #archlinux
+2018-05-26 06:36:18	--	Topic for #archlinux is "Welcome to Arch Linux, Good Luck: https://archlinux.org | Rules: https://goo.gl/XWFreH | Pastebins: https://ptpb.pw https://gist.github.com https://bpaste.net | Become an official Arch Tester: https://goo.gl/48qpvG | If you didn't read the topic you will be eaten by a grue | Check your .pacnew ( https://www.archlinux.org/news/627 )"
+2018-05-26 06:36:18	--	Topic set by jelle (~weechat@archlinux/developer/jelle) on Fri, 20 Apr 2018 16:33:43
+2018-05-26 06:36:18	--	Channel #archlinux: 1736 nicks (1 op, 0 voices, 1735 normals)
+2018-05-26 06:36:18	--	Channel created on Sun, 15 Feb 2004 00:08:31
+2018-05-26 06:36:20	-->	damke (~damke@unaffiliated/damke) has joined #archlinux
+2018-05-26 06:37:02	<--	venmx (~pactadmin@82-132-217-99.dab.02.net) has quit (Ping timeout: 245 seconds)
+2018-05-26 06:38:33	<--	wesclemens (~wesclemen@c-73-208-189-237.hsd1.il.comcast.net) has quit (Quit: wesclemens)
+2018-05-26 06:39:00	<--	jcnmark6 (~jcnmark6@51.15.20.77) has quit (Quit: ZNC 1.7.0 - https://znc.in)
+2018-05-26 06:39:12	-->	jcnmark6 (~jcnmark6@51.15.20.77) has joined #archlinux
+2018-05-26 06:39:16	<--	sigmundv (~sigmundv@92.251.203.114.threembb.ie) has quit (Ping timeout: 260 seconds)
+2018-05-26 06:39:19	<--	silverghost (~silver@124.78.1.239) has quit (Quit: WeeChat 2.1)
+2018-05-26 06:39:46	-->	damke_ (~damke@unaffiliated/damke) has joined #archlinux
+2018-05-26 06:40:49	earnestly	The-Compiler: Solved that one, bemenu was reopening them as /dev/null
+2018-05-26 06:41:12	-->	firas (~firas@unaffiliated/firas) has joined #archlinux
+2018-05-26 06:41:13	earnestly	The-Compiler: It's very good of you to provide repos for this, nice idea
+2018-05-26 06:41:14	-->	jottr (~jottr@unaffiliated/jottr) has joined #archlinux
+2018-05-26 06:41:50	<--	sud0x3 (~sud0x3@host-92-21-229-63.as13285.net) has quit (Quit: WeeChat 2.1)
+2018-05-26 06:42:00	earnestly	The-Compiler: But I'll probably just let qt5 itself work through the problems as I'm sure newer stuff will have these fixed (in lieu of new ones)
+2018-05-26 06:42:45	<--	damke (~damke@unaffiliated/damke) has quit (Ping timeout: 252 seconds)
+2018-05-26 06:43:04	-->	MarioBranco (~MarioBran@49.25.115.89.rev.vodafone.pt) has joined #archlinux
+2018-05-26 06:43:35	<--	Pupnik (~Pupnik@2001:44b8:41c4:ba00:13a8:9262:c94a:b148) has quit (Remote host closed the connection)
+2018-05-26 06:45:38	-->	S1k5e (~S1k5e@modemcable246.101-22-96.mc.videotron.ca) has joined #archlinux
+2018-05-26 06:46:03	<--	jottr (~jottr@unaffiliated/jottr) has quit (Ping timeout: 252 seconds)
+2018-05-26 06:46:12	<--	Guest72637 (~Natch@h-112-130.A444.priv.bahnhof.se) has left #archlinux
+2018-05-26 06:46:17	-->	Natch (~Natch@h-112-130.A444.priv.bahnhof.se) has joined #archlinux
+2018-05-26 06:46:49	-->	JoshDreamland (~Josh@enigma/joshdreamland) has joined #archlinux
+2018-05-26 06:48:19	<--	therue (~therue@1-162-62-151.dynamic-ip.hinet.net) has quit (Quit: WeeChat 2.1)
+2018-05-26 06:48:39	--	irc: disconnected from server
+2018-05-26 07:41:41	-->	jade-sky (~aidan@mtrlpq2911w-lp130-07-70-48-127-111.dsl.bell.ca) has joined #archlinux
+2018-05-26 07:41:41	--	Topic for #archlinux is "Welcome to Arch Linux, Good Luck: https://archlinux.org | Rules: https://goo.gl/XWFreH | Pastebins: https://ptpb.pw https://gist.github.com https://bpaste.net | Become an official Arch Tester: https://goo.gl/48qpvG | If you didn't read the topic you will be eaten by a grue | Check your .pacnew ( https://www.archlinux.org/news/627 )"
+2018-05-26 07:41:41	--	Topic set by jelle (~weechat@archlinux/developer/jelle) on Fri, 20 Apr 2018 16:33:43
+2018-05-26 07:41:42	--	Channel #archlinux: 1738 nicks (1 op, 0 voices, 1737 normals)
+2018-05-26 07:41:43	--	Channel created on Sun, 15 Feb 2004 00:08:31
+2018-05-26 07:41:51	ldiamond	pacman -Si lib32-wayland lib32-mesa
+2018-05-26 07:41:56	ldiamond	damn clipboard
+2018-05-26 07:41:58	ldiamond	http://termbin.com/b9xm
+2018-05-26 07:42:03	jer	!lib32-wayland
+2018-05-26 07:42:03	phrik	lib32-wayland is broken right now, we know. Don't worry, your 32-bit GL will work again as soon as the fixed package is moved out of testing.
+2018-05-26 07:42:07	Gnea	I'm having problems getting Xorg to work. Using an Nvidia 8400GS with the 340.xxx dkms driver. Xorg log complains about the ABI version 24 not lining up. Found this: https://bugs.archlinux.org/task/58660 but IgnoreABI causes my system to hardlock, so I disabled it. Should I consider downgrading Xorg to 1.19?
+2018-05-26 07:42:07	phrik	Title:FS#58660 : [nvidia-340xx] Xorg server won't start with 340.106-35 (at bugs.archlinux.org)
+2018-05-26 07:42:16	ldiamond	Oh ok, so known issue
+2018-05-26 07:42:24	-->	shizy (~shizy@64.179.157.183) has joined #archlinux
+2018-05-26 07:42:41	-->	cdown (~cdown@88.98.208.14) has joined #archlinux
+2018-05-26 07:43:14	Gnea	It's been about a week since that entry was made and commented upon, so I'm not sure if something changed elsewhere and I just can't find it
+2018-05-26 07:43:19	jer	Gnea, seems like your other option is to upgrade the nvidia driver
+2018-05-26 07:43:41	Gnea	jer: I've upgraded everything, it's all up to date as far as archlinux is concerned.
+2018-05-26 07:43:48	-->	martian67 (~martian67@about/linux/regular/martian67) has joined #archlinux
+2018-05-26 07:43:56	ldiamond	on a different(ish) subject. What's up with wayland? I'd like to ditch Xorg because Steam keeps making it crash.
+2018-05-26 07:44:00	martian67	hello is there a removed AUR stuff archive site?
+2018-05-26 07:44:06	jer	latest driver atm i see is 390.59-2
+2018-05-26 07:44:09	Gnea	I upgraded about 20 minutes ago and rebooted. This problem persists.
+2018-05-26 07:44:10	martian67	i distinctly remeber there being one, but now i cannot find it
+2018-05-26 07:44:17	<--	fstd (~fstd@unaffiliated/fisted) has quit (Ping timeout: 264 seconds)
+2018-05-26 07:44:17	--	fstd_ is now known as fstd
+2018-05-26 07:44:19	jelle	martian67: I don't believe aur.git exists anymore
+2018-05-26 07:44:23	-->	aTKeefle (~aTKeefle@212.34.22.25) has joined #archlinux
+2018-05-26 07:44:24	martian67	:/
+2018-05-26 07:44:25	Gnea	jer: but that driver does not work with my card.
+2018-05-26 07:44:27	martian67	thanks
+2018-05-26 07:44:28	jer	ah
+2018-05-26 07:44:32	<--	gzuh0 (~gzuh@172.58.111.6) has quit (Remote host closed the connection)
+2018-05-26 07:44:32	Namarrgon	Gnea: 340xx doesn#t support the current xorg, it's broken for everyone
+2018-05-26 07:44:33	jelle	martian67: hey it's a public service
+2018-05-26 07:44:42	-->	artesia (~io@5ED6C60D.cm-7-7d.dynamic.ziggo.nl) has joined #archlinux
+2018-05-26 07:44:48	Gnea	Namarrgon: It can't be that way. It needs to suppport it. 
+2018-05-26 07:44:55	Gnea	-p
+2018-05-26 07:44:56	-->	natrys (~natrys@180.234.47.16) has joined #archlinux
+2018-05-26 07:45:03	Namarrgon	Gnea: welcome to team green
+2018-05-26 07:45:09	beest	Namarrgon will get on that right away
+2018-05-26 07:45:18	Gnea	heh
+2018-05-26 07:45:31	ldiamond	Talking about team green, is team red's driver decent nowadays?
+2018-05-26 07:45:36	beest	also i need my bedroom painted
+2018-05-26 07:45:38	martian67	jelle:  not blaming anyone
+2018-05-26 07:45:38	martian67	just sucks is all
+2018-05-26 07:45:55	Gnea	Namarrgon: so, does that make ATI team red?
+2018-05-26 07:45:57	jelle	looool
+2018-05-26 07:45:59	jer	the 8400gs is supported by the nouveau driver, that might be an option
+2018-05-26 07:46:00	-->	gzuh0 (~gzuh@172.58.111.6) has joined #archlinux
+2018-05-26 07:46:04	Namarrgon	Gnea: yes
+2018-05-26 07:46:08	Gnea	Namarrgon: awesome
+2018-05-26 07:46:12	<--	joriregter (d57f6406@gateway/web/freenode/ip.213.127.100.6) has quit (Ping timeout: 260 seconds)
+2018-05-26 07:46:20	<--	s4mu (~s4mu@151.29.150.34) has quit (Ping timeout: 256 seconds)
+2018-05-26 07:46:23	martian67	jelle:  any idea how i figure out why something was removed
+2018-05-26 07:46:30	Gnea	nouveau is not a valid option
+2018-05-26 07:46:34	jer	ok
+2018-05-26 07:46:44	Gnea	However, I might downgrade xorg for now
+2018-05-26 07:47:06	-->	neiluj_ (~neiluj@unaffiliated/neiluj) has joined #archlinux
+2018-05-26 07:47:27	jelle	martian67: no, if I hadn't had flacky wifi I'd checked on the server if it's still there
+2018-05-26 07:47:38	artesia	I've been having problems getting my display port to work on my laptop, anyone have a familiar problem?
+2018-05-26 07:47:39	jelle	martian67: which pkg?
+2018-05-26 07:48:01	Gnea	Namarrgon: it sounds to me like Nvidia is throwing us under the bus. I may upgrade my card, but I'd need to find a low-rise version.
+2018-05-26 07:48:27	jer	as was said earlier, welcome to team green =] nvidia throwing you under the bus is only a matter of time
+2018-05-26 07:48:46	Gnea	I blame bitcoin =]
+2018-05-26 07:48:57	martian67	jelle: wxcam
+2018-05-26 07:48:57	beest	s/nvidia/$HARDWAREVENDOR/
+2018-05-26 07:49:09	-->	stoopkid (uid137696@gateway/web/irccloud.com/x-genwsrhaxrkrhwix) has joined #archlinux
+2018-05-26 07:49:25	Namarrgon	ldiamond: which command gave you that error?
+2018-05-26 07:49:53	<--	shizy (~shizy@64.179.157.183) has quit (Ping timeout: 268 seconds)
+2018-05-26 07:51:54	-->	jottr (~jottr@unaffiliated/jottr) has joined #archlinux
+2018-05-26 07:52:06	Namarrgon	ldiamond: that file does not exist in lib32-mesa and i just ran a -Syu without any problems
+2018-05-26 07:53:04	hdqn	I got clipboard_cmd="xsel -b" in $XDG_CONFIG_HOME/fb-client/config, but it doesn't work, only works as ="xsel", any idea how to make it copy to the clipboard?
+2018-05-26 07:53:04	-->	zarcade_droid (~arcade_dr@unaffiliated/arcade-droid/x-4286778) has joined #archlinux
+2018-05-26 07:55:17	<--	hdqn (~rld@user-94-254-146-134.play-internet.pl) has quit (Remote host closed the connection)
+2018-05-26 07:55:25	-->	hdqn (~rld@user-94-254-146-134.play-internet.pl) has joined #archlinux
+2018-05-26 07:55:42	<--	neiluj_ (~neiluj@unaffiliated/neiluj) has quit (Ping timeout: 260 seconds)
+2018-05-26 07:55:47	-->	joshuaBPMan (~user@72.12.220.132) has joined #archlinux
+2018-05-26 07:55:54	<--	MarioBranco (~MarioBran@49.25.115.89.rev.vodafone.pt) has quit (Remote host closed the connection)
+2018-05-26 07:56:27	<--	kcning (~kcning@unaffiliated/kcning) has quit (Quit: bye!)
+2018-05-26 07:56:38	-->	MarioBranco (~MarioBran@49.25.115.89.rev.vodafone.pt) has joined #archlinux
+2018-05-26 07:56:52	<--	jottr (~jottr@unaffiliated/jottr) has quit (Ping timeout: 260 seconds)
+2018-05-26 07:58:41	hdqn	wedens: points for me and good for you :D
+2018-05-26 07:58:49	hdqn	whoops
+2018-05-26 07:58:52	hdqn	kek
+2018-05-26 07:59:01	<--	jayray (~jayray@2602:ffc5:30::1:604) has quit (Ping timeout: 276 seconds)
+2018-05-26 08:00:47	-->	damke (~damke@unaffiliated/damke) has joined #archlinux
+2018-05-26 08:01:05	<--	throstur (~throstur@unaffiliated/throstur) has quit (Ping timeout: 264 seconds)
+2018-05-26 08:01:39	-->	jayray (~jayray@2602:ffc5:30::1:604) has joined #archlinux
+2018-05-26 08:02:33	-->	fhs (~fhs@pool-98-116-215-61.nycmny.fios.verizon.net) has joined #archlinux
+2018-05-26 08:03:25	ldiamond	Namarrgon: that's odd, I get that error for pacman -Syu
+2018-05-26 08:03:25	<--	damke_ (~damke@unaffiliated/damke) has quit (Ping timeout: 252 seconds)
+2018-05-26 08:03:58	Namarrgon	are you using the testing repos?
+2018-05-26 08:04:13	ldiamond	no
+2018-05-26 08:04:31	Namarrgon	pacman -Syu --debug
+2018-05-26 08:04:32	<--	zacmps (~zacmps@2407:7000:9c12:fe60:38dd:36ff:fe77:3fd9) has quit (Ping timeout: 245 seconds)
+2018-05-26 08:04:32	ldiamond	Maybe my mirrors are old?
+2018-05-26 08:04:38	<--	artesia (~io@5ED6C60D.cm-7-7d.dynamic.ziggo.nl) has quit (Quit: WeeChat 2.1)
+2018-05-26 08:05:06	Namarrgon	no, -Si reported the expected versions
+2018-05-26 08:05:37	ldiamond	same error with --debug, you want the entire output? error: failed to commit transaction (conflicting files)
+2018-05-26 08:06:04	-->	paradoxspiral (~ParadoxSp@2a01:4f8:d16:3445::2) has joined #archlinux
+2018-05-26 08:06:39	-->	zacmps (~zacmps@27.252.216.170) has joined #archlinux
+2018-05-26 08:06:39	Namarrgon	ah, my mistake. your mirro has lib32-mesa 18.0.4-1, but should have -2
+2018-05-26 08:06:49	Namarrgon	so, yeah. try a different mirror
+2018-05-26 08:07:07	-->	ald3baran (uid231815@gateway/web/irccloud.com/x-okbskfdcncwmaeuz) has joined #archlinux
+2018-05-26 08:07:10	ldiamond	yea someone reported that as a known issue, which was probably fixed recently
+2018-05-26 08:07:20	Namarrgon	that was a different issue
+2018-05-26 08:07:36	<--	Mr_L (~Mr_L@p4FE476A6.dip0.t-ipconnect.de) has quit (Quit: leaving)
+2018-05-26 08:07:44	<--	sigsts (~sigsts@unaffiliated/skyroverr) has quit (Remote host closed the connection)
+2018-05-26 08:07:53	ldiamond	yea waterloo has -2
+2018-05-26 08:07:58	ldiamond	princeton was on -1
+2018-05-26 08:08:13	<--	ShapeShifter499 (~ShapeShif@unaffiliated/shapeshifter499) has quit (Read error: Connection reset by peer)
+2018-05-26 08:08:38	ldiamond	I have another conflict but that's something else.
+2018-05-26 08:09:22	-->	la_croix (~la_croix@94.11.251.2) has joined #archlinux
+2018-05-26 08:10:47	<--	amelliaa (~amelliaa@109.201.133.30) has quit (Ping timeout: 245 seconds)
+2018-05-26 08:10:51	ldiamond	Anyone here use way-cooler?
+2018-05-26 08:11:26	-->	Waples_ (~waples@x4db625c6.dyn.telefonica.de) has joined #archlinux
+2018-05-26 08:12:03	jadesoturi	how can i change the video driver used for my webcam? got the precisionHD from cisco, but the uvcvideo driver only support 640x480 at 15fps while the cam supports 720p30 
+2018-05-26 08:12:15	-->	sigsts (~sigsts@unaffiliated/skyroverr) has joined #archlinux
+2018-05-26 08:12:31	-->	aeSee5eiqu (~throwaway@181.115.27.125) has joined #archlinux
+2018-05-26 08:12:40	Namarrgon	is there an alternative driver?
+2018-05-26 08:12:42	-->	Zaplo (~Bonomono@dsl-trebng22-58c1b9-64.dhcp.inet.fi) has joined #archlinux
+2018-05-26 08:12:42	<--	jstimm (~jstimm@unaffiliated/jstimm) has quit (Ping timeout: 268 seconds)
+2018-05-26 08:13:19	<--	ImQ009_ (~ImQ009@unaffiliated/imq009) has quit (Ping timeout: 268 seconds)
+2018-05-26 08:13:23	jadesoturi	its the one that got autoloaded. .i have no idea. but docs says it supported on linux. 
+2018-05-26 08:13:32	Namarrgon	well, it works
+2018-05-26 08:13:46	jadesoturi	however. cisco only offers a download of windows software/drivers.. 
+2018-05-26 08:13:49	-->	ImQ009_ (~ImQ009@unaffiliated/imq009) has joined #archlinux
+2018-05-26 08:13:57	jadesoturi	yah it does. but would be nice to have it at 720p  and not laggy :P
+2018-05-26 08:14:01	Namarrgon	"supported" doesn't always mean that you get all the features
+2018-05-26 08:14:16	Zaplo	I installed custom kernel and mkinitcpio is now complaining about missing nvidia modules. I then installed nvidia-dkms and it installed nvidia dkms module to my custom kernel without errors. Do i need to do something to enable it, or should the driver load on boot automatically?
+2018-05-26 08:14:44	Namarrgon	it will load on boot automatically, unless you did something funny
+2018-05-26 08:14:48	jadesoturi	true. but ive had this cam for a few years.. and i remember it had 30fps at some point in linux as well. but i cant remember what driver what used then :(
+2018-05-26 08:15:29	Zaplo	Namarrgon, in that case i'll try it.. and hopefully be back in 5 minutes
+2018-05-26 08:15:33	<--	Zaplo (~Bonomono@dsl-trebng22-58c1b9-64.dhcp.inet.fi) has quit (Client Quit)
+2018-05-26 08:16:53	Namarrgon	reminds me of a no-name webcam i had that interpolated from a lower resolution to get the advertised 640x480
+2018-05-26 08:17:04	<--	Waples_ (~waples@x4db625c6.dyn.telefonica.de) has quit (Quit: WeeChat 2.1)
+2018-05-26 08:18:14	-->	Gathis (~TheBlack@unaffiliated/gathis) has joined #archlinux
+2018-05-26 08:18:18	jadesoturi	yeah that was pretty normal a few years back though.. i had a few logitech cams that only worked like that:P
+2018-05-26 08:19:27	-->	irreleph4nt (~irrelevan@p5B2CCFDF.dip0.t-ipconnect.de) has joined #archlinux
+2018-05-26 08:19:43	-->	Mr_L (~Mr_L@p4FE476A6.dip0.t-ipconnect.de) has joined #archlinux
+2018-05-26 08:19:44	Gucci_Bandana	Hi, how could I download the mp3 file from a website that ends in .mp3?
+2018-05-26 08:20:10	irreleph4nt	Hi. I am having difficulties understanding how to create a PKGBUILD for split packages ...
+2018-05-26 08:20:47	Gucci_Bandana	I solved my issue. Googling is always the thing I should do first.
+2018-05-26 08:20:49	Namarrgon	jadesoturi: does qv4l2 list the resolution you want?
+2018-05-26 08:20:55	irreleph4nt	One question I have would be: Does ${pkgdir} refer to the same directory for all of them or does makepkg create a separate directory for all of them?
+2018-05-26 08:22:06	Namarrgon	Gucci_Bandana: if this is about filesharing then you're on the wrong network
+2018-05-26 08:22:13	ibiam	trying to do an update and i get this error
+2018-05-26 08:22:15	ibiam	error: failed to commit transaction (conflicting files)
+2018-05-26 08:22:17	ibiam	js52: /usr/lib/libmozjs-52.so.0 exists in filesystem
+2018-05-26 08:22:21	Namarrgon	!give ibiam news
+2018-05-26 08:22:23	phrik	ibiam: https://www.archlinux.org/news/
+2018-05-26 08:22:30	-->	pankaj (~pankaj@103.226.89.146) has joined #archlinux
+2018-05-26 08:22:44	-->	Guanin (~Guanin@p4FF5A144.dip0.t-ipconnect.de) has joined #archlinux
+2018-05-26 08:22:50	Gucci_Bandana	Namarrgon: Should I use a different network if I have question involing wget or other cli commands?
+2018-05-26 08:22:51	irreleph4nt	Second question is: Is it acceptable if I create / build the files for all of them in the same directory first and the just move them to their right places in package()?
+2018-05-26 08:23:34	ibiam	thanks Namarrgon
+2018-05-26 08:23:42	Namarrgon	Gucci_Bandana: no, but filesharing is offtopic. don't post links, don't ask anything that could be misinterpreted.
+2018-05-26 08:24:06	Gucci_Bandana	Namarrgon: Ok, I'll know for the next time. Thanks
+2018-05-26 08:24:20	-->	MtotheM (~MtotheM~@h-4-126.A392.priv.bahnhof.se) has joined #archlinux
+2018-05-26 08:24:23	jadesoturi	Namarrgon, no. max is 640x480
+2018-05-26 08:24:37	jadesoturi	and i cant select another driver in the test bench either 
+2018-05-26 08:24:46	<--	joshuaBPMan (~user@72.12.220.132) has quit (Read error: Connection reset by peer)
+2018-05-26 08:25:37	<--	licensed (~licensed@unaffiliated/licensed) has quit (Remote host closed the connection)
+2018-05-26 08:25:47	<--	im0nde (~im0nde@2a0a-a541-57df-0-aa11-af6a-f49b-642f.ipv6dyn.netcologne.de) has quit (Ping timeout: 245 seconds)
+2018-05-26 08:26:23	ldiamond	What's your aur helper of choice?
+2018-05-26 08:26:26	-->	ijks (~ijks@15pc77.sshunet.nl) has joined #archlinux
+2018-05-26 08:27:14	-->	pankaj_ (~pankaj@103.226.89.146) has joined #archlinux
+2018-05-26 08:28:04	ldiamond	aurman?
+2018-05-26 08:28:13	bah	I like aurutils
+2018-05-26 08:28:32	<--	pankaj_ (~pankaj@103.226.89.146) has quit (Client Quit)
+2018-05-26 08:29:24	<--	quite (quite@unaffiliated/quite) has quit (Ping timeout: 260 seconds)
+2018-05-26 08:29:33	ldiamond	I went from yaourt to pacaur now both are deprecated, aurman seem to work though
+2018-05-26 08:29:43	-->	jottr (~jottr@unaffiliated/jottr) has joined #archlinux
+2018-05-26 08:30:20	bah	I started with makepkg then pacaur when I got too many aur packages.  I think the aurutils approach of using repos is really nice though
+2018-05-26 08:30:37	ldiamond	yea I did makepkg too, but it gets painful
+2018-05-26 08:31:41	-->	randomthoughts (~stadmin@5354D82D.cm-6-5d.dynamic.ziggo.nl) has joined #archlinux
+2018-05-26 08:31:56	<--	merzo (~merzo@140-3-133-95.pool.ukrtel.net) has quit (Remote host closed the connection)
+2018-05-26 08:32:26	-->	strang3quark (~quark@119.32.103.87.rev.vodafone.pt) has joined #archlinux
+2018-05-26 08:32:39	-->	quite (quite@unaffiliated/quite) has joined #archlinux
+2018-05-26 08:32:53	ldiamond	Why is their approach nicer?
+2018-05-26 08:33:11	ldiamond	rather, how is it nicer?
+2018-05-26 08:33:12	bah	it uses a local repo, so aur packages get compiled and put in their, and then they no longer appear as foreign packages to pacman
+2018-05-26 08:33:25	-->	joshuaBPMan (~user@72.12.220.132) has joined #archlinux
+2018-05-26 08:33:27	bah	its more work to set up, but when it is, updating aur is: aur sync -u
+2018-05-26 08:33:56	ldiamond	so you'd do your sync, then pacman -Syu
+2018-05-26 08:34:09	bah	I usually do pacman -Syu first so that when aur recompiles its against latest
+2018-05-26 08:34:21	bah	the aur sync command pushes them to pacman automatically
+2018-05-26 08:34:35	bah	but I think you can also choose to not do that
+2018-05-26 08:34:41	ldiamond	isn't that what pacaur did?
+2018-05-26 08:34:48	<--	jottr (~jottr@unaffiliated/jottr) has quit (Ping timeout: 248 seconds)
+2018-05-26 08:34:49	bah	yeah
+2018-05-26 08:35:12	<--	Gucci_Bandana (~GucciBand@85.118.8.150) has quit (Ping timeout: 240 seconds)
+2018-05-26 08:35:19	ldiamond	idk if aurman does that.
+2018-05-26 08:35:29	<--	ibiam (~ibiam@105.112.89.154) has quit (Quit: ibiam)
+2018-05-26 08:35:30	bah	it doesn't do batched operations like pacaur though.  none of them seem to
+2018-05-26 08:36:06	-->	forell (~forell@unaffiliated/forell) has joined #archlinux
+2018-05-26 08:36:26	ldiamond	aurman asks me all the questions in one go then proceeds.
+2018-05-26 08:36:32	bah	ah yeah, that is nice
+2018-05-26 08:36:34	<--	resurtm (~resurtm@x4db2597f.dyn.telefonica.de) has quit (Ping timeout: 245 seconds)
+2018-05-26 08:36:35	<--	sokan (~Henry_D@unaffiliated/totaloblivion) has quit (Read error: Connection reset by peer)
+2018-05-26 08:36:39	<--	la_croix (~la_croix@94.11.251.2) has quit (Quit: My MacBook has gone to sleep. ZZZzzz…)
+2018-05-26 08:36:44	ldiamond	and I just did pacman -Qi apvlv and it's shown in pacman too
+2018-05-26 08:36:51	ldiamond	so I guess it uses the same repo approach
+2018-05-26 08:37:07	ldiamond	i didn't know there was another approach tbh
+2018-05-26 08:37:25	-->	chozen (~chozen@67.230.78.113) has joined #archlinux
+2018-05-26 08:37:52	bah	if you didn't have to edit /etc/pacman.conf to add a repo, then not sure about that
+2018-05-26 08:38:04	j605	Qi will work for foreign packages as well
+2018-05-26 08:38:12	ldiamond	oh ok
+2018-05-26 08:38:32	bah	one advantage to repo is for multiple machines.  I sync a server, vm, desktop, and laptop to one aur repo
+2018-05-26 08:39:33	-->	im0nde (~im0nde@2a0a-a541-4919-0-9aa8-bfb2-f961-4d83.ipv6dyn.netcologne.de) has joined #archlinux
+2018-05-26 08:40:16	jadesoturi	Namarrgon, looks like if i change from YUYV to MJPG, i can select higher resolutions, but when selecting 720p30 test bench just crashes.P lol.. at lower res on mjpg it shows the picture, before it hangs :P lol
+2018-05-26 08:40:48	hypercore	anyone using brave browser here?
+2018-05-26 08:40:50	-->	NoobAlice (~NoobAlice@cpe-74-69-11-87.rochester.res.rr.com) has joined #archlinux
+2018-05-26 08:41:52	<--	chozen (~chozen@67.230.78.113) has quit (Ping timeout: 256 seconds)
+2018-05-26 08:42:02	-->	mongy (~dean@unaffiliated/duffydack) has joined #archlinux
+2018-05-26 08:42:16	Namarrgon	!anyone
+2018-05-26 08:42:17	phrik	Quite possibly. Why do you ask?
+2018-05-26 08:42:51	hypercore	i'm not able to open multiple instances of the browser, just wondering if it's an upstream issue or a result of my setup
+2018-05-26 08:42:55	Namarrgon	jadesoturi: there was a similar cli tool in the -utils package, maybe that one doesn't crash
+2018-05-26 08:43:09	-->	ImNotQ009__ (~ImQ009@unaffiliated/imq009) has joined #archlinux
+2018-05-26 08:45:05	<--	vandemar (~anon@nginx/adept/vandemar) has left #archlinux
+2018-05-26 08:45:31	jadesoturi	hmm.. ill check it out 
+2018-05-26 08:45:47	<--	tuerai (~tuerai@63.228.59.248) has quit (Quit: Leaving)
+2018-05-26 08:46:17	<--	ImQ009_ (~ImQ009@unaffiliated/imq009) has quit (Ping timeout: 256 seconds)
+2018-05-26 08:46:21	<--	krabador (~krabador@unaffiliated/krabador) has quit (Quit: Leaving)
+2018-05-26 08:46:25	Namarrgon	hypercore: have you talked to upstream?
+2018-05-26 08:47:17	hypercore	Namarrgon: posted in their channel, but only 3 people there
+2018-05-26 08:47:48	-->	krabador (~krabador@unaffiliated/krabador) has joined #archlinux
+2018-05-26 08:47:49	-->	ibiam (~ibiam@105.112.89.154) has joined #archlinux
+2018-05-26 08:47:50	Namarrgon	irc isn't always the right medium to reach out to upstream
+2018-05-26 08:47:54	<--	opthomasprime (~thomas@p54852AE0.dip0.t-ipconnect.de) has quit (Remote host closed the connection)
+2018-05-26 08:48:02	<--	most_enter (~most_ente@91-113-71-101.adsl.highway.telekom.at) has quit (Quit: Leaving)
+2018-05-26 08:48:56	-->	opthomasprime (~thomas@p54852AE0.dip0.t-ipconnect.de) has joined #archlinux
+2018-05-26 08:51:24	-->	semeion (~semeion@unaffiliated/semeion) has joined #archlinux
+2018-05-26 08:51:50	-->	slaqer (~slaqer@cpe-65-189-30-115.cinci.res.rr.com) has joined #archlinux
+2018-05-26 08:52:24	<--	akkadian (~akkadian@unaffiliated/akkadian) has quit (Read error: Connection reset by peer)
+2018-05-26 08:53:21	-->	akkadian (~akkadian@unaffiliated/akkadian) has joined #archlinux
+2018-05-26 08:53:44	-->	lothar_m (~lothar_m@5.101.149.13) has joined #archlinux
+2018-05-26 08:55:02	<--	hypercore (~user@gateway/tor-sasl/hypercore) has quit (Ping timeout: 250 seconds)
+2018-05-26 08:56:02	<--	eduardoeae (~eduardoea@gate3.playcomla.com.ar) has quit (Ping timeout: 256 seconds)
+2018-05-26 08:56:37	<--	Mr_L (~Mr_L@p4FE476A6.dip0.t-ipconnect.de) has quit (Quit: leaving)
+2018-05-26 08:56:58	-->	Tecuhtli (~mephisto@189.163.65.198) has joined #archlinux
+2018-05-26 08:57:09	<--	arie1p (~arielp@unaffiliated/arielp) has quit (Quit: WeeChat 2.1)
+2018-05-26 08:57:29	-->	docmax1 (~docmax@x2f620d3.dyn.telefonica.de) has joined #archlinux
+2018-05-26 08:59:07	<--	strang3quark (~quark@119.32.103.87.rev.vodafone.pt) has quit (Ping timeout: 245 seconds)
+2018-05-26 08:59:25	-->	tuerai (~tuerai@63.228.59.248) has joined #archlinux
+2018-05-26 08:59:57	<--	MarioBranco (~MarioBran@49.25.115.89.rev.vodafone.pt) has quit (Ping timeout: 245 seconds)
+2018-05-26 09:00:12	<--	docmax (~docmax@x2f183a2.dyn.telefonica.de) has quit (Ping timeout: 240 seconds)
+2018-05-26 09:00:12	--	docmax1 is now known as docmax
+2018-05-26 09:00:24	-->	MarioBranco (~MarioBran@49.25.115.89.rev.vodafone.pt) has joined #archlinux
+2018-05-26 09:01:10	--	eblip is now known as eb0t_
+2018-05-26 09:01:43	-->	murray (~murray@dyndsl-089-166-210-129.ewe-ip-backbone.de) has joined #archlinux
+2018-05-26 09:01:55	-->	csantosb (~user@160.60.205.77.rev.sfr.net) has joined #archlinux
+2018-05-26 09:02:21	<--	sdothum (~znc@dsl-173-206-72-241.tor.primus.ca) has quit (Quit: ZNC 1.7.0 - https://znc.in)
+2018-05-26 09:02:28	-->	merzo (~merzo@140-3-133-95.pool.ukrtel.net) has joined #archlinux
+2018-05-26 09:02:51	merzo	hello after the last update I lost the desktop (Nautilus)
+2018-05-26 09:03:01	merzo	Is it possoble to return the desktop?
+2018-05-26 09:03:11	coderobe	certainly
+2018-05-26 09:03:57	ayekat	"lost the desktop"...?  O_o
+2018-05-26 09:06:48	merzo	I mean the workarea that represents the $HOME/Desktop
+2018-05-26 09:06:53	<--	hmw2 (~hmw@84-114-225-116.cable.dynamic.surfer.at) has quit (Quit: Leaving.)
+2018-05-26 09:06:56	-->	CyberManifest (~CyberMani@r74-192-49-147.vctrcmta01.vctatx.tl.dh.suddenlink.net) has joined #archlinux
+2018-05-26 09:07:08	merzo	I don't know hot to explain in other words :)
+2018-05-26 09:07:41	merzo	coderobe please could you say? ^)
+2018-05-26 09:07:44	Namarrgon	gnome got rid of the "desktop", it's a feature
+2018-05-26 09:07:54	ayekat	merzo: do you mean the functionality of the screen space that is not covered by windows, where usually there are icons and things happen when you right-click on it?
+2018-05-26 09:08:03	ayekat	merzo: or merely the ~/Desktop directory?
+2018-05-26 09:08:09	coderobe	!errors
+2018-05-26 09:08:11	phrik	Don't just say it doesn't work. Give the exact error. If there is more information than a line or two, see !paste
+2018-05-26 09:08:45	ayekat	or has the wallpaper disappeared
+2018-05-26 09:09:12	merzo	ayekat yes! :)
+2018-05-26 09:09:20	ayekat	the wallpaper has disappeared
+2018-05-26 09:09:22	ayekat	set a new one
+2018-05-26 09:09:31	merzo	ayekat "functionality of the screen space that is not covered by windows, where usually there are icons and things happen when you right-click on it?"
+2018-05-26 09:09:35	ayekat	ah
+2018-05-26 09:10:23	ayekat	so there are no icons, and nothing happens when you right-click on it? (I assume something should happen if it's managed by nautilus, but I have no idea)
+2018-05-26 09:11:03	merzo	no icons just a white screen
+2018-05-26 09:11:35	<--	spasa (~spasa@gateway/tor-sasl/spasa) has quit (Quit: leaving)
+2018-05-26 09:11:54	<--	cdown (~cdown@88.98.208.14) has quit (Ping timeout: 268 seconds)
+2018-05-26 09:12:13	<--	krabador (~krabador@unaffiliated/krabador) has quit (Quit: Leaving)
+2018-05-26 09:12:22	ayekat	and...?
+2018-05-26 09:12:26	<--	CyberManifest (~CyberMani@r74-192-49-147.vctrcmta01.vctatx.tl.dh.suddenlink.net) has quit (Read error: Connection reset by peer)

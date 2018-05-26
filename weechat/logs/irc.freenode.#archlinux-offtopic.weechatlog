@@ -1,0 +1,168 @@
+2018-05-26 07:42:23	-->	jade-sky (~aidan@mtrlpq2911w-lp130-07-70-48-127-111.dsl.bell.ca) has joined #archlinux-offtopic
+2018-05-26 07:42:23	--	Topic for #archlinux-offtopic is "Welcome to #alots | Rules: https://goo.gl/XWFreH | Stats: https://alyp.tk/stats/aotstats.html contact jp (alyptik) to opt out | https://goo.gl/cjzmY6 | nom nom https://i.redd.it/8t45y7g0grq01.jpg | Topic Kitteh https://i.imgur.com/8m4KPxO.gifv | caturday https://i.imgur.com/Cdpz0kQ.jpg | https://i.redd.it/6azy3rjaopv01.jpg"
+2018-05-26 07:42:23	--	Topic set by phrik (phrik@archlinux/bot/phrik) on Sat, 26 May 2018 08:30:58
+2018-05-26 07:42:23	--	Channel #archlinux-offtopic: 304 nicks (2 ops, 14 voices, 288 normals)
+2018-05-26 07:42:25	--	Channel created on Thu, 29 Mar 2007 00:10:02
+2018-05-26 07:42:52	FrostFeline	mnrmnaugh: get robot intestine
+2018-05-26 07:44:16	mnrmnaugh	i just dont click links anymore
+2018-05-26 07:52:02	mnrmnaugh	!rf
+2018-05-26 07:52:02	@phrik	mnrmnaugh: Random factoid: "piracy1" is "<reply>https://www.facebook.com/photo.php?fbid=204825403005908&set=oa.350647265027788&type=1&relevant_count=1&ref=nf"
+2018-05-26 07:53:11	beest	!factinfo piracy1
+2018-05-26 07:53:11	@phrik	beest: piracy1: Created by Julius2 on 2013-07-04T06:45:38+0000. Last requested by XReaper!XReaper@i.bought.this.domain.fornoreason.net.au on 2013-07-04T18:56:00+0000, requested 2 times.
+2018-05-26 07:53:21	beest	!rmfact piracy1
+2018-05-26 07:53:21	@phrik	beest: Tada!
+2018-05-26 07:55:17	<--	hdqn (~rld@user-94-254-146-134.play-internet.pl) has quit (Remote host closed the connection)
+2018-05-26 07:55:25	-->	hdqn (~rld@user-94-254-146-134.play-internet.pl) has joined #archlinux-offtopic
+2018-05-26 08:08:13	<--	ShapeShifter499 (~ShapeShif@unaffiliated/shapeshifter499) has quit (Read error: Connection reset by peer)
+2018-05-26 08:10:05	 *	jelle wonders why a chroot to a debian chroot does not work
+2018-05-26 08:10:56	jelle	bash: ls: command not found
+2018-05-26 08:13:40	FrostFeline	!rq beest
+2018-05-26 08:13:41	@phrik	FrostFeline: <beest> that's not really too novel for me, i do most of my drugs with women
+2018-05-26 08:22:38	-->	kcseb (~kcseb@65.60.156.233) has joined #archlinux-offtopic
+2018-05-26 08:23:18	<--	kcseb (~kcseb@65.60.156.233) has quit (Client Quit)
+2018-05-26 08:24:01	Fer750	default is called if not parsed with -c name
+2018-05-26 08:24:54	Fer750	or is a plain chroot , instead schroot ?
+2018-05-26 08:26:12	Fer750	the systems has not the same kernel and libs
+2018-05-26 08:27:31	Fer750	maybe the debian release is too old.
+2018-05-26 08:29:05	Fer750	you can try an old arch release or debian sid-
+2018-05-26 08:33:54	jelle	fuck people with an anchor who subprocess tools
+2018-05-26 08:34:02	jelle	and expect ppl to have it installed
+2018-05-26 08:35:08	jelle	but ooof bq, I have an fpga now
+2018-05-26 08:35:27	jelle	I also now want to kill everyone involved in the tooling
+2018-05-26 08:37:05	Fer750	lawl ischroot = ln -s /dev/true
+2018-05-26 08:37:36	SysGhost	jelle: sounds liek you're not too happy about something.
+2018-05-26 08:37:38	Fer750	beacouse can be bugged sometimes
+2018-05-26 08:37:41	jelle	SysGhost: indeed
+2018-05-26 08:37:45	jelle	SysGhost: this shit software
+2018-05-26 08:37:54	jelle	Board: fpga101
+2018-05-26 08:37:56	jelle	Error: 'NoneType' object has no attribute 'get'
+2018-05-26 08:38:01	jelle	ERRORS HOW DO THEY EVEN WORK
+2018-05-26 08:38:06	jelle	muh ragequit
+2018-05-26 08:38:17	jelle	it works in a virtualenv >_>
+2018-05-26 08:38:31	jelle	in4b nasty binary or shit
+2018-05-26 08:40:10	pulec	meh this 50km trip felt worthless
+2018-05-26 08:40:32	pulec	I realized my bike is fucky, derrailers are fucked up
+2018-05-26 08:40:45	SysGhost	it's how lazy devs work. "Ohhh.. I'm gonna print this error straight out of the context and never tell from where it came. It'll sure help"
+2018-05-26 08:40:47	pulec	sweated through all my clothes = no bike clothes
+2018-05-26 08:41:02	pulec	lets rather do some coding now
+2018-05-26 08:42:02	-->	mongy (~dean@unaffiliated/duffydack) has joined #archlinux-offtopic
+2018-05-26 08:46:02	pulec	Someone in Sri Lanka figured out a way to make a 100% eco friendly paper out of....elephant poop! Someone in Sri Lanka figured out a way to make a 100% eco friendly paper out of....elephant poop! 
+2018-05-26 08:46:08	pulec	shit net is slow
+2018-05-26 08:46:11	pulec	everything doubles
+2018-05-26 08:46:15	pulec	reboot router
+2018-05-26 08:46:28	SysGhost	WHAAAT???.. what about the uptime =O
+2018-05-26 08:46:51	SysGhost	waiiit... my net is slow too. What did you do pulec?
+2018-05-26 08:47:04	pulec	nuttin
+2018-05-26 08:47:12	SysGhost	you let the slowness out again
+2018-05-26 08:47:12	pulec	the zyxel is just fucky again
+2018-05-26 08:47:29	SysGhost	toss that "#¤%& out
+2018-05-26 08:48:03	SysGhost	Had a zyxel once. Alost as bad as D-Link routers
+2018-05-26 08:48:42	jelle	SysGhost: try: except Exception:
+2018-05-26 08:48:44	jelle	YOLO
+2018-05-26 08:49:04	+SCHAPiE	ZyXEL?
+2018-05-26 08:49:10	 *	SCHAPiE vomits in the corner of the room
+2018-05-26 08:49:17	pulec	yeah dat shit
+2018-05-26 08:49:28	pulec	only dsl isp provides that
+2018-05-26 08:49:36	+SCHAPiE	i used to have a zyxel too
+2018-05-26 08:49:48	jelle	lulz
+2018-05-26 08:49:51	pulec	I have another router, old asus wl500gp with lede, without wifi on, it fucks it up somehow
+2018-05-26 08:49:59	jelle	PULEC
+2018-05-26 08:50:05	mongy	heh, my new fibre isp provided a zyxel.. I said keep that, my asus takes a shit and gives me one of those
+2018-05-26 08:50:08	pulec	and it seemeted to work when the zyxel was just in bridge mode (meaning pls do nothing)
+2018-05-26 08:50:10	+SCHAPiE	ZyLEC
+2018-05-26 08:50:14	pulec	JELLE
+2018-05-26 08:50:21	jelle	ohai, from closer
+2018-05-26 08:50:21	+SCHAPiE	JeXEL
+2018-05-26 08:50:28	mongy	the zyxel doesn't like cat6 cable either, pathetic
+2018-05-26 08:50:30	pulec	!yt nin closer
+2018-05-26 08:50:31	@phrik	YouTube :: https://youtu.be/PTFwQP86BRs :: Nine Inch Nails - Closer (Director's Cut)
+2018-05-26 08:50:39	jelle	pulec: not sure how close brno is to belgrade :p
+2018-05-26 08:50:50	pulec	one day ride of car
+2018-05-26 08:50:52	pulec	tried that
+2018-05-26 08:50:56	jelle	not really close-ish :p
+2018-05-26 08:51:00	pulec	hungary is sooo boring
+2018-05-26 08:51:06	jelle	budapest ftw
+2018-05-26 08:51:13	pulec	if you know some places
+2018-05-26 08:51:32	pulec	I have a friend from there, his stories make it seem like Mordor on Earth
+2018-05-26 08:51:37	jelle	wat
+2018-05-26 08:51:40	jelle	been there, was fun
+2018-05-26 08:51:50	-->	slaqer (~slaqer@cpe-65-189-30-115.cinci.res.rr.com) has joined #archlinux-offtopic
+2018-05-26 08:51:50	pulec	yeah, if you go to a bad street, well
+2018-05-26 08:52:01	pulec	probably they are ok with tourists, cause $$$
+2018-05-26 08:52:03	jelle	ah yeah
+2018-05-26 08:52:18	jelle	pulec: girl was almost either robbed or worse in one street
+2018-05-26 08:52:29	pulec	but if you are Hungarian and speaking English on the street for example, the nationalist are gonna get you
+2018-05-26 08:52:30	jelle	she could jump in a taxi soon enough
+2018-05-26 08:52:38	jelle	pulec: ah
+2018-05-26 08:52:39	pulec	and if you are girl, yeah
+2018-05-26 08:52:44	jelle	yeah I've heard about that
+2018-05-26 08:53:02	pulec	bunch of brainwashed rednecks it seems, sad
+2018-05-26 08:53:06	pulec	smart people leave the country
+2018-05-26 08:53:09	jelle	*cough*
+2018-05-26 08:53:13	jelle	heard them same of here
+2018-05-26 08:53:21	pulec	so true for many countries
+2018-05-26 08:53:31	Fer750	here is the same, but with uber cars
+2018-05-26 08:53:32	pulec	!check if brainwashed rednecks are everywhere
+2018-05-26 08:53:33	@phrik	Testing if brainwashed rednecks are everywhere: [FAIL]
+2018-05-26 08:53:37	jelle	ooof
+2018-05-26 08:53:43	jelle	not that much in nl or I'm ignorant
+2018-05-26 08:54:06	pulec	so I guess you guys already talked about expanse
+2018-05-26 08:54:17	jelle	nooo
+2018-05-26 08:54:20	jelle	haven't seeeeeeeeeen
+2018-05-26 08:55:15	pulec	https://twitter.com/Casanvar/status/1000234595680505856
+2018-05-26 08:55:16	@phrik	Title:Cas Anvar auf Twitter: "I'll just let him say it... #TheExpanse #RocinanteIsSafe #BreakingNews Thank you @JeffBezos… " (at twitter.com)
+2018-05-26 08:55:34	jelle	but renewed!
+2018-05-26 08:56:49	pulec	renewed?
+2018-05-26 08:57:11	pulec	that makes it sound like it will start from s1 again
+2018-05-26 09:00:59	tigrmesh	beest: how's it going?  it rained here today, has it rained today where you are?
+2018-05-26 09:01:31	+SCHAPiE	time for a beer
+2018-05-26 09:02:18	pulec	tigrmesh: give us some rain
+2018-05-26 09:02:21	<--	sdothum (~znc@dsl-173-206-72-241.tor.primus.ca) has quit (Quit: ZNC 1.7.0 - https://znc.in)
+2018-05-26 09:02:25	pulec	!weather Brno
+2018-05-26 09:02:28	@phrik	pulec: Current weather for Brno, Czech Republic (IJIHOMOR33) | Temperature: 28.8 °C (Feels like: 28 °C) (Heat Index: 28 °C) | Humidity: 37% | Pressure: 102.0 kPa | Conditions: Clear | Wind: SW at 0.83 m/s | Updated: 1 mins, 2 secs ago
+2018-05-26 09:02:34	pulec	ufff
+2018-05-26 09:02:45	pulec	why I was biking in this heat
+2018-05-26 09:02:47	pcspkr	!weather helsinki
+2018-05-26 09:02:48	@phrik	pcspkr: Current weather for Etu-Toeoeloe, Finland (EFHK) | Temperature: 21 °C (Feels like: 21 °C) | Humidity: 40% | Pressure: 102.6 kPa | Conditions: Clear | Wind: SSE at 4.17 m/s | Updated: 12 mins, 40 secs ago
+2018-05-26 09:02:50	pcspkr	too hot
+2018-05-26 09:03:04	pcspkr	pulec: why do you bike at all
+2018-05-26 09:03:09	pcspkr	biking is for filthy hippies
+2018-05-26 09:03:15	pcspkr	!weather prague
+2018-05-26 09:03:24	@phrik	pcspkr: Current weather for Stare Mesto, Czech Republic (IPRAGUE432) | Temperature: 26.1 °C (Feels like: 26 °C) | Humidity: 38% | Pressure: 102.0 kPa | Conditions: Partly Cloudy | Wind: SE | Updated: 18 secs ago
+2018-05-26 09:03:25	SysGhost	pulec: keep that over ther I don't want it. Ish!... anything above 20ºC is far too hot =S
+2018-05-26 09:03:32	SysGhost	!weather stockholm
+2018-05-26 09:03:35	@phrik	SysGhost: Current weather for Stockholm, Sweden (ESSB) | Temperature: 24 °C (Feels like: 24 °C) | Humidity: 36% | Pressure: 102.6 kPa | Conditions: Clear | Wind: South at 3.06 m/s | Updated: 13 mins, 27 secs ago
+2018-05-26 09:03:41	SysGhost	Damn it!!!
+2018-05-26 09:03:42	pcspkr	finland wins
+2018-05-26 09:04:06	jade-sky	!weather montreal
+2018-05-26 09:04:08	@phrik	jade-sky: Current weather for Golden Square Mile, Quebec (IWESTMOU2) | Temperature: 20.5 °C (Feels like: 20.5 °C) | Humidity: 56% | Pressure: 100.9 kPa | Conditions: Overcast | Wind: ENE at 1.67 m/s | Updated: 20 secs ago
+2018-05-26 09:04:38	SysGhost	jade-sky: That's more like it. Gimme some!
+2018-05-26 09:04:48	jade-sky	SysGhost: but it's sooooo humid
+2018-05-26 09:04:54	Fer750	!weather East pole
+2018-05-26 09:04:58	@phrik	Fer750: Current weather for Al Murqab, Kuwait (IKUWAITA3) | Temperature: 38.5 °C (Feels like: 37 °C) (Heat Index: 37 °C) | Humidity: 20% | Pressure: 100.6 kPa | Conditions: Clear | Wind: NNW | Updated: 2 mins, 47 secs ago
+2018-05-26 09:05:17	jade-sky	Fer750:    :O
+2018-05-26 09:05:26	SysGhost	jade-sky: Nice!.. I'r rather have it humid at a comfortable temperature, than dry and too hot.
+2018-05-26 09:06:04	Fer750	!weather fish pole
+2018-05-26 09:06:05	@phrik	Fer750: Error: Could not look up location 'fish pole'. Does that place even exist?
+2018-05-26 09:06:26	SysGhost	!weather north pole
+2018-05-26 09:06:28	@phrik	SysGhost: Current weather for Colonia Esperanza, Mexico (IDISTRIT44) | Temperature: 21.6 °C (Feels like: 21.6 °C) | Humidity: 13% | Pressure: 102.5 kPa | Conditions: Clear | Wind: NNW at 1.67 m/s | Updated: 27 secs ago
+2018-05-26 09:06:34	SysGhost	0o
+2018-05-26 09:06:45	jade-sky	SysGhost: lol that's not right
+2018-05-26 09:06:57	Fer750	wow that downs a little, now north pole is on mexico
+2018-05-26 09:07:06	jade-sky	!weather resolute
+2018-05-26 09:07:08	@phrik	jade-sky: Current weather for Resolute, Nunavut (CYRB) | Temperature: -6 °C (Feels like: -10 °C) (Wind Chill: -10 °C) | Humidity: 68% | Pressure: 101.1 kPa | Conditions: Clear | Wind: NW at 2.5 m/s | Updated: 6 mins, 59 secs ago
+2018-05-26 09:07:17	SysGhost	Perhaps phrik is following the magnetic pole, 
+2018-05-26 09:07:24	paulguy	🌭
+2018-05-26 09:07:26	SysGhost	Them mexicans take everything
+2018-05-26 09:08:11	paulguy	!weather greenland
+2018-05-26 09:08:15	@phrik	paulguy: Current weather for Breedy's, Barbados (ISAINTAN96) | Temperature: 30.1 °C (Feels like: 36 °C) (Heat Index: 36 °C) | Humidity: 75% | Pressure: 101.4 kPa | Conditions: Partly Cloudy | Wind: ESE at 5.56 m/s | Updated: 5 mins, 42 secs ago
+2018-05-26 09:08:20	paulguy	hehe
+2018-05-26 09:08:47	SysGhost	paulguy: u borked. I fix. u bend over. Stuff u with fix cream from behind!
+2018-05-26 09:08:53	SysGhost	phrik: ^
+2018-05-26 09:08:54	@phrik	Look, look, up there! ^('-')^
+2018-05-26 09:09:53	Fer750	!weather  grassland
+2018-05-26 09:09:55	@phrik	Fer750: Current weather for Grassland, Alberta (IALBERTA472) | Temperature: 15.4 °C (Feels like: 15.4 °C) | Humidity: 50% | Pressure: 100.8 kPa | Conditions: Clear | Wind: West at 4.72 m/s | Updated: 13 secs ago
+2018-05-26 09:09:56	paulguy	sysghost, i can't bottom, sorry. :p
+2018-05-26 09:10:52	SysGhost	sounds like a nice place, grassland
+2018-05-26 09:11:53	ox	DoomPatrol: that album is garbage :|
+2018-05-26 09:12:19	ox	DoomPatrol: i truely dont understand what people like about it?
