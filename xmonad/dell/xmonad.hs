@@ -1,1 +1,0 @@
-/home/aidan/.config/xmonad/dell/xmonad-dell.hs

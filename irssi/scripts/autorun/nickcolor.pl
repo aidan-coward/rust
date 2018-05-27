@@ -1,1 +1,0 @@
-/home/aidan/.irssi/scripts/nickcolor.pl

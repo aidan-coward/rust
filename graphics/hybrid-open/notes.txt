@@ -1,5 +1,0 @@
-added 10-radeon.conf
-
-added radeon to /etc/mkinitcpio.conf
-
-added 20-gpu.conf to /etc/X11/xorg.conf.d/

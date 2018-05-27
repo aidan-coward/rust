@@ -1,2 +1,0 @@
-remove radeon.conf from /etc/modules-load.d
-removed acpid package from system
