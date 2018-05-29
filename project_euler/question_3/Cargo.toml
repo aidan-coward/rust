@@ -5,4 +5,4 @@ authors = ["Aidan Coward <aidan.coward@gmail.com>"]
 
 [dependencies]
 
-prime_utils = { path = "prime_utils" }
+prime_utils = { path = "/home/aidan/rust/prime_utils" }
