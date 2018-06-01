@@ -22,4 +22,6 @@ fn char_option_to_int(option: Option<u32>) -> u32 {
 }
 
 fn check_sum_4_digits(big_num_vector: Vec<u32> -> u32 {
+    for (i, item) in big_num_vector.iter().enumerate() {
 
+    
