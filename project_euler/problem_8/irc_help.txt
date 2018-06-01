@@ -1,0 +1,10 @@
+ | jade-sky: Fundamentally, a Option is a enum with two different possible values: None, or Some(inner_value)                                                                            │ adjivas
+14:31:51   jade-sky | i tried with None => , and Some => but i haven't been able to find anything that explains how to deal with it                                                                         │ adrianbrink
+14:31:59          ⤷ | so idk even if i did it properly                                                                                                                                                      │ Aerath
+14:32:25 OtterCoder | jade-sky: A very awesome way to use an option is with map. You feed map a function that takes your inner value, and it will either feed the value in, or pass the failed option       │ aeroaks-M
+                    | forward.                                                                                                                                                                              │ ag_dubs
+14:32:27    kimundi | .unwrap() just usines match with None => and SOme(x) => internally                                                                                                                    │ ahf
+14:33:08          ⤷ | eval: let x = Some("hello"); match x { None => "<nothing>", Some(y) => y }                                                                                                            │ ahkurtz_
+14:33:10         -- | Notice(eval): "hello"                                                                                                                                                                 │ ajd
+14:33:17    kimundi | eval: let x = None; match x { None => "<nothing>", Some(y) => y }                                                                                                                     │ akhiros
+14:33:20         -- | Notice(eval): "<nothing>" 
