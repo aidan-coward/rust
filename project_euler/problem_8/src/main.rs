@@ -1,27 +1,40 @@
 fn main() {
     let big_num_string = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450";
     let big_num_vector_char: Vec<char> = big_num_string.chars().collect();
-    let mut big_num_vector_int: Vec<u32> = Vec::new();
-    big_num_vector_int = vec_char_to_vec_int(big_num_vector_char);
-
+    let big_num_vector_int: Vec<u64> = vec_char_to_vec_int(big_num_vector_char);
+    println!("The largest product of adjacent numbers is: {}", check_sum_4_digits(&big_num_vector_int));
 }
 
-fn vec_char_to_vec_int(vec: Vec<char>) -> Vec<u32> {
-    let mut output_vector: Vec<u32> = Vec::new();
+fn vec_char_to_vec_int(vec: Vec<char>) -> Vec<u64> {
+    let mut output_vector: Vec<u64> = Vec::new();
     for x in vec {
         output_vector.push(char_option_to_int(x.to_digit(10)));
     }
     output_vector
 }
 
-fn char_option_to_int(option: Option<u32>) -> u32 {
+fn char_option_to_int(option: Option<u32>) -> u64 {
     match option {
-        Some(int_value) => int_value,
+        Some(int_value) => int_value as u64,
         None => 0,
     }
 }
 
-fn check_sum_4_digits(big_num_vector: Vec<u32> -> u32 {
+fn check_sum_4_digits(big_num_vector: &Vec<u64>) -> u64 {
+    let mut largest_product: u64 = 0;
+    let mut current_product: u64 = 1; 
     for (i, item) in big_num_vector.iter().enumerate() {
-
-    
+        if *item == 0 { continue }
+        for y in 0..13 {
+            current_product *= big_num_vector[i + y];
+        }
+       if current_product > largest_product {
+           largest_product = current_product 
+       }
+       if i == big_num_vector.len() - 14 {
+           break 
+       }
+       current_product = 1;
+    }
+    largest_product
+}
