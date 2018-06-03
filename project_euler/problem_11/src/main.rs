@@ -29,7 +29,7 @@ let mut largest_product: u32 = 1;
 
 // horizontal product
     for x in 0..20 {
-        for y in 0..20 {
+        for y in 0..16 {
             for z in 0..4 {
                 current_product *= grid[x][y + z];
             }
@@ -55,7 +55,7 @@ let mut largest_product: u32 = 1;
             }
             current_product = 1;
         }
-        println!("the largest vertical product is: {}" vert_product);
+        println!("the largest vertical product is: {}", vert_product);
         if vert_product > largest_product {
             largest_product = vert_product;
         }
@@ -72,7 +72,7 @@ let mut largest_product: u32 = 1;
             }
             current_product = 1;
         }
-        println!("the largest diagonally ascending product is: {}", diag_asc_product);
+        println!("the largest diagonally descending product is: {}", diag_desc_product);
         if diag_desc_product > largest_product {
             largest_product = diag_desc_product;
         }
@@ -89,12 +89,11 @@ let mut largest_product: u32 = 1;
             }
             current_product = 1;
         }
-        println!("the largest diagonally descending product is: {}", diag_desc_product);
+        println!("the largest diagonally ascending product is: {}", diag_asc_product);
         if diag_asc_product > largest_product {
             largest_product = diag_asc_product;
         }
     }
+    println!("the largest product is: {}", largest_product);
 }
 
-    println!
-}
