@@ -1,91 +1,46 @@
+// to find the number of paths in an nxn grid, represent the path as a 2n-digit binary string
+// right is 0, down is 1 or vice versa
+//
+// the number of 2n-digit binary strings with n 1s or 0s is the number of ways of choosing n slots
+// from the total of 2n slots, thus '2n choose n'
+// to calculate this - (n + n)!/(n!)^2
+// according to
+// wiki(https://en.wikipedia.org/wiki/Binomial_coefficient#Combinatorics_and_statistics), there are 
+// '(n+k) choose n' or '(n+k) choose k' strings with n ones and k zeros 
+//
+// http://mathworld.wolfram.com/StaircaseWalk.html , there are (m + n) choose m(or n) different
+// staircase walks on a grid with m horizontal and n vertical lines
+// (m + n)!/(m!*n!)
+
+extern crate num;
+
 fn main() {
-    let mut list_routes: Vec<Vec<[u8; 2]>> = vec![vec![[0, 0]]];
-    let mut next_routes: Vec<Vec<[u8; 2]>> = Vec::new(); 
-    //let mut intermediate: Vec<[u8; 2]> = list_routes[0].clone();
-    let mut intermediate: Vec<[u8; 2]>;
-    let mut none_counter: u8 = 0;   
-    let mut loop_counter: u64 = 0;
-
-    let mut step1: [u8; 2];
-    let mut step2: [u8; 2];
-
-    let mut output_step1: Option<[u8; 2]>;
-    let mut output_step2: Option<[u8; 2]>;
-    while none_counter < 2 {
-    for i in 0..(list_routes.len()) {
-        //println!("list_routes: {:?}", list_routes);
-        //println!("next_routes: {:?}", next_routes);
-        none_counter = 0;   
-        output_step1 = next_steps(&list_routes[i])[0];
-        output_step2 = next_steps(&list_routes[i])[1];
-        //println!("{:?} {:?}", output_step1, output_step2);
-    match output_step1 {
-        Some(step1) => {
-            //println!("step 1: {:?}", step1);
-            intermediate = list_routes[i].clone();
-            intermediate.push(step1);
-            //println!("{:?}", intermediate);
-            next_routes.push(intermediate);
-        }
-        None => { 
-            println!("nothing");
-            none_counter += 1;
-        }
-        }
-
-    match output_step2 {
-        Some(step2) => {
-            //println!("step 2: {:?}", step2);
-            intermediate = list_routes[i].clone();
-            intermediate.push(step2);
-            //println!("{:?}", intermediate);
-            next_routes.push(intermediate);
-        }
-        None => { 
-            println!("nothing");
-            none_counter += 1;
-        }
+    for x in 0..21 {
+        println!("the number of routes in a {}x{} grid is: {}", x, x, staircase_walks(x, x, "squares"));
     }
-
-
-    //println!("loop number: {}", loop_counter);
-    loop_counter += 1;
-    if loop_counter % 500 == 0 {
-        println!("the current number of routes is: {}, and the the first route is: {:?}", list_routes.len(), list_routes[0]);
-    }
-    //    for z in &list_routes {
-    //        println!("{:?}", z);
-    //    }
-    }
-    list_routes = next_routes;
-    next_routes = vec![];
-    }
-    //println!("the number of routes is: {}", list_routes);             
 }
 
-
-fn next_steps(input_vec: &Vec<[u8; 2]>) -> [Option<[u8; 2]>; 2] {
-    let mut step1: Option<[u8; 2]> = None;
-    let mut step2: Option<[u8; 2]> = None;
-
-    let current_point: [u8; 2] = input_vec.last().expect("no gucci").clone();
-
-    if current_point[0] < 40 && current_point[1] < 40 {
-        step1 = Some([current_point[0] + 1, current_point[1]]);
-        step2 = Some([current_point[0], current_point[1] + 1]);
-    }   
-    else if current_point[0] < 40 && current_point[1] == 40 {
-        step1 = Some([current_point[0] + 1, current_point[1]]);
-        step2 = None;
+fn factorial(x: u8) -> u128 {
+    if x == 0 {
+        return 1;
     }
-    else if current_point[0] == 40 && current_point[1] < 40 {
-        step1 = None;
-        step2 = Some([current_point[0], current_point[1] + 1]);
+    let mut current_num: u128 = 1;
+    for y in 2..(x + 1) {
+        current_num = current_num * (y as u128);
     }
-    else if current_point[0] == 40 && current_point[1] == 40 {
-        step1 = None;
-        step2 = None;
-    }
+    current_num
+}
 
-    [step1, step2]
+fn staircase_walks(n: u8, m: u8, grid_type: &str) -> u128 {
+    let number_walks: u128;
+    match grid_type {
+        "squares" => {
+            number_walks = factorial(n + m + 2) / (factorial(n + 1) * factorial(m + 1));
+        }
+        "lines" => {
+            number_walks = factorial(n + m) / (factorial(n) * factorial(m));
+        }
+        _ => number_walks = 0,
+    }
+    number_walks
 }
